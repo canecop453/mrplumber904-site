@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Website Intake — Mr. Plumber 904</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Utility locate palette — blue is the marking color for potable water lines */
+  --water:#12467E;
+  --water-lift:#1B5FA8;
+  --copper:#A85E2E;
+  --ink:#14181C;
+  --steel:#5B6673;
+  --stock:#EFEDE8;
+  --stock-2:#FFFFFF;
+  --rule:#CFCAC1;
+  --rule-hard:#9A948A;
+  --ok:#1F6B3B;
+
+  --mono:'Roboto Mono', ui-monospace, monospace;
+  --sans:'Archivo', system-ui, sans-serif;
+  --bar-h:76px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--stock);
+  color:var(--ink);
+  line-height:1.5;
+  padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom) + 1rem);
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:640px;margin:0 auto;padding:0 1rem}
+
+/* ---------- Work order header ---------- */
+.head{
+  background:var(--ink);
+  color:var(--stock-2);
+  padding:1.5rem 0 1.25rem;
+  border-bottom:5px solid var(--water);
+}
+.stamp{
+  font-family:var(--mono);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#8FB4DC;
+  display:flex;justify-content:space-between;gap:1rem;
+  border-bottom:1px solid rgba(255,255,255,.18);
+  padding-bottom:.6rem;margin-bottom:.9rem;
+}
+.head h1{
+  font-size:clamp(1.5rem,6vw,2rem);
+  font-weight:800;
+  letter-spacing:-.02em;
+  line-height:1.1;
+}
+.head p{
+  font-size:.95rem;color:#B9C2CC;margin-top:.5rem;max-width:46ch;
+}
+
+/* ---------- Sections ---------- */
+.sec{margin-top:2rem;background:var(--stock-2);border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+.sec__bar{
+  display:flex;align-items:baseline;gap:.7rem;
+  padding:.7rem .9rem;
+  background:var(--water);
+  color:#fff;
+}
+.sec__n{
+  font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.14em;
+  background:rgba(255,255,255,.16);padding:.16rem .42rem;border-radius:2px;
+}
+.sec__t{font-size:.94rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.sec__body{padding:.4rem .9rem 1rem}
+.sec__note{
+  font-family:var(--mono);font-size:.72rem;color:var(--steel);
+  padding:.7rem 0 .1rem;line-height:1.55;
+}
+
+/* ---------- Fields ---------- */
+.f{padding:.9rem 0;border-bottom:1px solid var(--rule)}
+.f:last-child{border-bottom:none}
+.f > label,.f__legend{
+  display:block;
+  font-family:var(--mono);
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--steel);margin-bottom:.45rem;
+}
+.f__hint{font-family:var(--sans);font-size:.82rem;color:var(--steel);text-transform:none;letter-spacing:0;font-weight:400;margin-top:.2rem;display:block}
+input[type=text],input[type=tel],input[type=email],textarea,select{
+  width:100%;
+  font-family:var(--sans);font-size:1rem;color:var(--ink);
+  background:var(--stock-2);
+  border:1px solid var(--rule-hard);
+  border-radius:2px;
+  padding:.72rem .7rem;
+  min-height:48px;
+  transition:border-color .15s,box-shadow .15s;
+}
+textarea{min-height:96px;resize:vertical;line-height:1.5}
+input:focus-visible,textarea:focus-visible,select:focus-visible{
+  outline:none;border-color:var(--water);box-shadow:0 0 0 3px rgba(18,70,126,.18);
+}
+::placeholder{color:#A09A91}
+
+/* choice chips */
+.opts{display:flex;flex-wrap:wrap;gap:.45rem}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;width:100%;height:100%;left:0;top:0;margin:0;cursor:pointer}
+.opt span{
+  display:block;
+  font-size:.9rem;
+  padding:.6rem .8rem;min-height:44px;
+  display:flex;align-items:center;
+  border:1px solid var(--rule-hard);border-radius:2px;
+  background:var(--stock-2);
+  transition:background .15s,border-color .15s,color .15s;
+}
+.opt input:checked + span{
+  background:var(--water);border-color:var(--water);color:#fff;font-weight:500;
+}
+.opt input:focus-visible + span{box-shadow:0 0 0 3px rgba(18,70,126,.25)}
+
+/* stacked radio rows for longer choices */
+.rows{display:grid;gap:.45rem}
+.rows .opt span{align-items:flex-start;line-height:1.4;padding:.7rem .8rem}
+
+/* ---------- Sticky action bar ---------- */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:20;
+  background:var(--ink);
+  border-top:4px solid var(--copper);
+  padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));
+}
+.bar__in{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:.8rem}
+.meter{flex:1;min-width:0}
+.meter__t{
+  font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:#8FB4DC;margin-bottom:.35rem;
+}
+.meter__track{height:5px;background:rgba(255,255,255,.16);border-radius:99px;overflow:hidden}
+.meter__fill{height:100%;width:0;background:var(--water-lift);transition:width .3s ease}
+.btn{
+  font-family:var(--sans);font-weight:600;font-size:.95rem;
+  padding:.85rem 1.15rem;min-height:48px;
+  border:none;border-radius:2px;cursor:pointer;
+  background:var(--water-lift);color:#fff;
+  white-space:nowrap;
+  transition:background .15s,transform .1s;
+}
+.btn:hover{background:#2470C4}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible{outline:3px solid #8FB4DC;outline-offset:2px}
+.btn--done{background:var(--ok)}
+
+/* ---------- Output ---------- */
+.out{margin-top:2rem;display:none}
+.out.on{display:block}
+.out__head{
+  background:var(--ink);color:#fff;padding:.7rem .9rem;
+  font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+}
+.out pre{
+  font-family:var(--mono);font-size:.78rem;line-height:1.6;
+  background:var(--stock-2);border:1px solid var(--rule);border-top:none;
+  padding:.9rem;white-space:pre-wrap;word-wrap:break-word;
+  max-height:340px;overflow:auto;
+}
+.out__acts{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.7rem}
+.btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--rule-hard)}
+.btn--ghost:hover{background:#E4E1DA}
+
+footer{
+  font-family:var(--mono);font-size:.68rem;color:var(--steel);
+  text-align:center;padding:2rem 1rem 1rem;letter-spacing:.06em;
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="wrap">
+    <div class="stamp"><span>Work Order</span><span>Website Intake</span></div>
+    <h1>Mr. Plumber 904</h1>
+    <p>Answer what you can. Skip anything that doesn't apply — nothing here is required. When you're done, tap <strong>Copy answers</strong> at the bottom and send it back.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="sec">
+    <div class="sec__bar"><span class="sec__n">01</span><span class="sec__t">The basics</span></div>
+    <div class="sec__body">
+      <div class="f"><label for="q_name">Business name, exactly how you want it shown</label>
+        <input type="text" id="q_name" data-q="Business name" placeholder="Mr. Plumber 904"></div>
+      <div class="f"><label for="q_you">Your name</label>
+        <input type="text" id="q_you" data-q="Owner name"></div>
+      <div class="f"><label for="q_phone">Phone number<span class="f__hint">The one you actually answer. This becomes the biggest button on the site.</span></label>
+        <input type="tel" id="q_phone" data-q="Phone" placeholder="(904) 555-0100"></div>
+      <div class="f"><label for="q_email">Email<span class="f__hint">Where contact form messages should go.</span></label>
+        <input type="email" id="q_email" data-q="Email"></div>
+      <div class="f"><label for="q_license">License number and the name it's held under</label>
+        <input type="text" id="q_license" data-q="License"></div>
+      <div class="f"><span class="f__legend">Insured and bonded?</span>
+        <div class="opts" data-q="Insured/bonded" data-type="radio" data-name="ins">
+          <label class="opt"><input type="radio" name="ins" value="Both insured and bonded"><span>Both</span></label>
+          <label class="opt"><input type="radio" name="ins" value="Insured only"><span>Insured only</span></label>
+          <label class="opt"><input type="radio" name="ins" value="Bonded only"><span>Bonded only</span></label>
+          <label class="opt"><input type="radio" name="ins" value="Neither"><span>Neither</span></label>
+        </div></div>
+      <div class="f"><label for="q_years">How long have you been plumbing?<span class="f__hint">Years in the trade, and years on your own if different.</span></label>
+        <input type="text" id="q_years" data-q="Experience" placeholder="14 years in the trade, 6 on my own"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__bar"><span class="sec__n">02</span><span class="sec__t">Where and when</span></div>
+    <div class="sec__body">
+      <div class="f"><label for="q_area">Service area<span class="f__hint">Towns and neighborhoods. How far will you drive?</span></label>
+        <textarea id="q_area" data-q="Service area" placeholder="Jacksonville, Fernandina Beach, Yulee, Callahan — about 45 minutes out"></textarea></div>
+      <div class="f"><label for="q_hours">Regular hours</label>
+        <input type="text" id="q_hours" data-q="Hours" placeholder="Mon–Fri 7am–5pm, Sat by appointment"></div>
+      <div class="f"><span class="f__legend">Emergency calls?</span>
+        <div class="opts" data-q="Emergency availability" data-type="radio" data-name="emg">
+          <label class="opt"><input type="radio" name="emg" value="24/7 emergency service"><span>24/7</span></label>
+          <label class="opt"><input type="radio" name="emg" value="After hours and weekends, not overnight"><span>After hours + weekends</span></label>
+          <label class="opt"><input type="radio" name="emg" value="Weekends only"><span>Weekends only</span></label>
+          <label class="opt"><input type="radio" name="emg" value="No emergency service"><span>No</span></label>
+        </div></div>
+      <div class="f"><span class="f__legend">Who do you work for?</span>
+        <div class="opts" data-q="Customer type" data-type="radio" data-name="cust">
+          <label class="opt"><input type="radio" name="cust" value="Residential only"><span>Residential</span></label>
+          <label class="opt"><input type="radio" name="cust" value="Commercial only"><span>Commercial</span></label>
+          <label class="opt"><input type="radio" name="cust" value="Both residential and commercial"><span>Both</span></label>
+        </div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__bar"><span class="sec__n">03</span><span class="sec__t">What you do</span></div>
+    <div class="sec__body">
+      <p class="sec__note">Tap everything you do. Don't leave stuff off — people search for oddly specific things, and every one you tap is another way to get found.</p>
+      <div class="f"><span class="f__legend">Services</span>
+        <div class="opts" data-q="Services" data-type="check">
+          <label class="opt"><input type="checkbox" value="Water heater repair"><span>Water heater repair</span></label>
+          <label class="opt"><input type="checkbox" value="Water heater replacement"><span>Water heater replace</span></label>
+          <label class="opt"><input type="checkbox" value="Tankless water heaters"><span>Tankless</span></label>
+          <label class="opt"><input type="checkbox" value="Drain cleaning"><span>Drain cleaning</span></label>
+          <label class="opt"><input type="checkbox" value="Leak detection"><span>Leak detection</span></label>
+          <label class="opt"><input type="checkbox" value="Slab leaks"><span>Slab leaks</span></label>
+          <label class="opt"><input type="checkbox" value="Repipe"><span>Repipe</span></label>
+          <label class="opt"><input type="checkbox" value="Sewer line repair and replacement"><span>Sewer line</span></label>
+          <label class="opt"><input type="checkbox" value="Camera inspection"><span>Camera inspection</span></label>
+          <label class="opt"><input type="checkbox" value="Hydro jetting"><span>Hydro jetting</span></label>
+          <label class="opt"><input type="checkbox" value="Toilet repair and install"><span>Toilets</span></label>
+          <label class="opt"><input type="checkbox" value="Faucet and fixture install"><span>Faucets / fixtures</span></label>
+          <label class="opt"><input type="checkbox" value="Garbage disposals"><span>Garbage disposals</span></label>
+          <label class="opt"><input type="checkbox" value="Gas lines"><span>Gas lines</span></label>
+          <label class="opt"><input type="checkbox" value="Water softeners and filtration"><span>Softeners / filtration</span></label>
+          <label class="opt"><input type="checkbox" value="Backflow testing"><span>Backflow testing</span></label>
+          <label class="opt"><input type="checkbox" value="Sump pumps"><span>Sump pumps</span></label>
+          <label class="opt"><input type="checkbox" value="Well pumps"><span>Well pumps</span></label>
+          <label class="opt"><input type="checkbox" value="New construction rough-in"><span>New construction</span></label>
+          <label class="opt"><input type="checkbox" value="Remodel plumbing"><span>Remodels</span></label>
+        </div></div>
+      <div class="f"><label for="q_other">Anything else you do that's not listed</label>
+        <input type="text" id="q_other" data-q="Other services"></div>
+      <div class="f"><label for="q_top">The two or three you most want to be called for<span class="f__hint">These get top billing on the page.</span></label>
+        <input type="text" id="q_top" data-q="Top services" placeholder="Water heaters, drain cleaning"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__bar"><span class="sec__n">04</span><span class="sec__t">Pricing</span></div>
+    <div class="sec__body">
+      <p class="sec__note">Only what you're comfortable putting in writing. Nothing has to be listed — but "free estimates" in the headline is worth a lot if it's true.</p>
+      <div class="f"><span class="f__legend">Which apply?</span>
+        <div class="opts" data-q="Pricing" data-type="check">
+          <label class="opt"><input type="checkbox" value="Free estimates"><span>Free estimates</span></label>
+          <label class="opt"><input type="checkbox" value="Flat rate pricing"><span>Flat rate</span></label>
+          <label class="opt"><input type="checkbox" value="Hourly pricing"><span>Hourly</span></label>
+          <label class="opt"><input type="checkbox" value="Trip or diagnostic fee"><span>Trip fee</span></label>
+          <label class="opt"><input type="checkbox" value="Financing available"><span>Financing</span></label>
+          <label class="opt"><input type="checkbox" value="Senior discount"><span>Senior discount</span></label>
+          <label class="opt"><input type="checkbox" value="Military discount"><span>Military discount</span></label>
+          <label class="opt"><input type="checkbox" value="First responder discount"><span>First responder</span></label>
+          <label class="opt"><input type="checkbox" value="Warranty on work"><span>Warranty on work</span></label>
+        </div></div>
+      <div class="f"><label for="q_price">Anything to add about pricing</label>
+        <input type="text" id="q_price" data-q="Pricing notes"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__bar"><span class="sec__n">05</span><span class="sec__t">Photos — the big one</span></div>
+    <div class="sec__body">
+      <p class="sec__note">This matters more than anything else on this form. Real job photos beat stock images every time, and a photo of you is the single most persuasive thing on a plumbing website — people hire a face. Phone photos are fine. Don't crop or edit them. Just text them over.</p>
+      <div class="f"><span class="f__legend">What you can send</span>
+        <div class="rows" data-q="Photos available" data-type="check">
+          <label class="opt"><input type="checkbox" value="A photo of me, ideally in work clothes on a job"><span>A photo of me in work clothes</span></label>
+          <label class="opt"><input type="checkbox" value="My truck, lettered"><span>My truck — lettered</span></label>
+          <label class="opt"><input type="checkbox" value="My truck, not lettered"><span>My truck — not lettered</span></label>
+          <label class="opt"><input type="checkbox" value="Before and after job photos"><span>Before / after job photos</span></label>
+          <label class="opt"><input type="checkbox" value="Work in progress shots"><span>Work in progress shots</span></label>
+          <label class="opt"><input type="checkbox" value="Crew photos"><span>Crew photos</span></label>
+          <label class="opt"><input type="checkbox" value="A logo file"><span>A logo file</span></label>
+          <label class="opt"><input type="checkbox" value="Nothing yet — need to take some"><span>Nothing yet — I'll take some</span></label>
+        </div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__bar"><span class="sec__n">06</span><span class="sec__t">Reviews and online</span></div>
+    <div class="sec__body">
+      <div class="f"><label for="q_reviews">Where do you have reviews?<span class="f__hint">Google, Facebook, Nextdoor, Yelp, Angi. Screenshots work fine.</span></label>
+        <textarea id="q_reviews" data-q="Reviews"></textarea></div>
+      <div class="f"><span class="f__legend">Google Business Profile</span>
+        <div class="opts" data-q="Google Business Profile" data-type="radio" data-name="gbp">
+          <label class="opt"><input type="radio" name="gbp" value="Claimed and up to date"><span>Claimed</span></label>
+          <label class="opt"><input type="radio" name="gbp" value="Exists but not claimed by me"><span>Exists, not mine</span></label>
+          <label class="opt"><input type="radio" name="gbp" value="Don't have one"><span>Don't have one</span></label>
+          <label class="opt"><input type="radio" name="gbp" value="Not sure"><span>Not sure</span></label>
+        </div></div>
+      <div class="f"><label for="q_social">Facebook, Instagram, Nextdoor, Angi, Thumbtack — paste whatever you have</label>
+        <textarea id="q_social" data-q="Social profiles"></textarea></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__bar"><span class="sec__n">07</span><span class="sec__t">How it should sound</span></div>
+    <div class="sec__body">
+      <div class="f"><span class="f__legend">Which is closest to how you'd talk to a customer?</span>
+        <div class="rows" data-q="Tone" data-type="radio" data-name="tone">
+          <label class="opt"><input type="radio" name="tone" value="Straight and no-nonsense — licensed, insured, on time, call"><span>Straight and no-nonsense — "Licensed. Insured. On time."</span></label>
+          <label class="opt"><input type="radio" name="tone" value="Friendly and local — your neighbor in the plumbing business"><span>Friendly and local — "Your neighbor in the plumbing business"</span></label>
+          <label class="opt"><input type="radio" name="tone" value="Premium — clean, quality-first, craftsmanship"><span>Premium — clean, quality-first, craftsmanship</span></label>
+          <label class="opt"><input type="radio" name="tone" value="Fast and urgent — emergency response focused"><span>Fast and urgent — emergency response focused</span></label>
+        </div></div>
+      <div class="f"><label for="q_thanks">What do customers thank you for most?</label>
+        <textarea id="q_thanks" data-q="What customers thank you for"></textarea></div>
+      <div class="f"><label for="q_diff">What do you do that the big companies don't?</label>
+        <textarea id="q_diff" data-q="What sets you apart"></textarea></div>
+      <div class="f"><label for="q_no">Anything you do NOT want on the site</label>
+        <textarea id="q_no" data-q="Do not include"></textarea></div>
+      <div class="f"><label for="q_misc">Anything else I should know</label>
+        <textarea id="q_misc" data-q="Anything else"></textarea></div>
+    </div>
+  </section>
+
+  <section class="out" id="out">
+    <div class="out__head">Your answers — ready to send</div>
+    <pre id="outText"></pre>
+    <div class="out__acts">
+      <button class="btn" id="copyBtn" type="button">Copy answers</button>
+      <a class="btn btn--ghost" id="smsBtn" href="#">Send as text</a>
+      <a class="btn btn--ghost" id="mailBtn" href="#">Send as email</a>
+    </div>
+  </section>
+
+  <footer>Mr. Plumber 904 · Website intake · Nothing is required</footer>
+</main>
+
+<div class="bar">
+  <div class="bar__in">
+    <div class="meter">
+      <div class="meter__t" id="meterText">0 of 25 answered</div>
+      <div class="meter__track"><div class="meter__fill" id="meterFill"></div></div>
+    </div>
+    <button class="btn" id="buildBtn" type="button">Copy answers</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var fields = Array.prototype.slice.call(document.querySelectorAll('[data-q]'));
+
+  function valueOf(el){
+    if (el.dataset.type === 'check'){
+      var on = Array.prototype.slice.call(el.querySelectorAll('input:checked'));
+      return on.map(function(i){ return i.value; }).join(', ');
+    }
+    if (el.dataset.type === 'radio'){
+      var sel = el.querySelector('input:checked');
+      return sel ? sel.value : '';
+    }
+    return (el.value || '').trim();
+  }
+
+  function answered(){
+    return fields.filter(function(f){ return valueOf(f) !== ''; }).length;
+  }
+
+  function updateMeter(){
+    var n = answered(), total = fields.length;
+    document.getElementById('meterText').textContent = n + ' of ' + total + ' answered';
+    document.getElementById('meterFill').style.width = Math.round(n / total * 100) + '%';
+    var b = document.getElementById('buildBtn');
+    b.classList.toggle('btn--done', n === total);
+  }
+
+  function buildText(){
+    var lines = ['MR. PLUMBER 904 — WEBSITE INTAKE', ''];
+    fields.forEach(function(f){
+      var v = valueOf(f);
+      if (v) lines.push(f.dataset.q + ': ' + v);
+    });
+    if (lines.length === 2) lines.push('(nothing filled in yet)');
+    return lines.join('\n');
+  }
+
+  function show(){
+    var text = buildText();
+    document.getElementById('outText').textContent = text;
+    document.getElementById('out').classList.add('on');
+    document.getElementById('smsBtn').href  = 'sms:?&body=' + encodeURIComponent(text);
+    document.getElementById('mailBtn').href = 'mailto:?subject=' + encodeURIComponent('Mr. Plumber 904 — website intake') + '&body=' + encodeURIComponent(text);
+    copy(text);
+    document.getElementById('out').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function copy(text){
+    var btn = document.getElementById('copyBtn');
+    function done(ok){
+      btn.textContent = ok ? 'Copied' : 'Select the text above to copy';
+      setTimeout(function(){ btn.textContent = 'Copy answers'; }, 2200);
+    }
+    if (navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(false); });
+      return;
+    }
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try { done(document.execCommand('copy')); } catch(e){ done(false); }
+    document.body.removeChild(ta);
+  }
+
+  document.addEventListener('input', updateMeter);
+  document.addEventListener('change', updateMeter);
+  document.getElementById('buildBtn').addEventListener('click', show);
+  document.getElementById('copyBtn').addEventListener('click', function(){ copy(buildText()); });
+  updateMeter();
+})();
+</script>
+</body>
+</html>
