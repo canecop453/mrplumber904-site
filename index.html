@@ -1,131 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>Mr. Plumber Remodel and More — Licensed Plumbing, Jacksonville &amp; Nassau County</title>
-<meta name="description" content="Licensed plumbing across Duval, Nassau, Clay and St. Johns counties. Water heaters, filtration, repipes. 24/7 emergency. Free estimates.">
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Mr. Plumber Remodel and More &mdash; Licensed Plumbing, Jacksonville &amp; Nassau County</title>
+<meta name="description" content="Licensed plumbers covering Duval, Nassau, Clay and St. Johns. Water heaters, filtration, repipes. 24/7 emergency. Free estimates.">
+<meta property="og:title" content="Mr. Plumber Remodel and More &mdash; Licensed Plumbing, Jacksonville &amp; Nassau County"><meta property="og:description" content="Licensed plumbers covering Duval, Nassau, Clay and St. Johns. Water heaters, filtration, repipes. 24/7 emergency. Free estimates.">
 <link rel="icon" href="assets/icon-faucet-teal.svg">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
-color:#0E2A2E;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
-background:#02ADB4;padding:14px;text-align:center}
-.callbar a{color:#fff;text-decoration:none;font-weight:800;font-size:19px;letter-spacing:.02em}
-@media(max-width:760px){.callbar{display:block} body{padding-bottom:62px}}
-.dbadge{position:fixed;top:10px;left:10px;z-index:70;background:#0E2A2E;color:#fff;
-font:600 11px/1 -apple-system,sans-serif;padding:7px 10px;border-radius:4px;letter-spacing:.09em;opacity:.82}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{color:#0D2A2E;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit} img{max-width:100%}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:#fff;padding:10px 16px;z-index:99;border-radius:6px}
+:focus-visible{outline:3px solid #02ADB4;outline-offset:3px}
+.photoslot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+border-radius:12px;text-align:center;padding:20px}
+.photoslot span{font-size:11px;font-weight:800;letter-spacing:.18em}
+.photoslot em{font-style:normal;font-size:13.5px;opacity:.85;max-width:30ch}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;background:#02ADB4;padding:13px}
+.callbar a{display:block;color:#fff;text-decoration:none;font-weight:800;font-size:19px;text-align:center}
+@media(max-width:780px){.callbar{display:block}body{padding-bottom:60px}}
+.dbadge{position:fixed;top:10px;left:10px;z-index:70;background:#0D2A2E;color:#fff;
+font:600 11px/1 system-ui,sans-serif;padding:7px 10px;border-radius:4px;letter-spacing:.09em;opacity:.8}
+.faq details{border-bottom:1px solid #DDEBEB;padding:16px 0}
+.faq summary{cursor:pointer;font-weight:700;font-size:16.5px;list-style:none;display:flex;
+justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:#02ADB4;font-weight:800;font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"\2013"}
+.faq p{color:#5C7679;margin-top:10px;font-size:15.5px;max-width:70ch}
 
-.nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #E2ECEC;
-display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px}
-.nav img{height:30px;width:auto;display:block}
-.navlinks{display:flex;gap:26px;font-size:14px;font-weight:600}
-.navlinks a{text-decoration:none;color:#3E5A5C}
-@media(max-width:900px){.navlinks{display:none}}
-.btn{background:#02ADB4;color:#fff;text-decoration:none;font-weight:800;
-padding:11px 20px;border-radius:6px;white-space:nowrap;font-size:15px}
-.hero{background:#0E2A2E;color:#fff;padding:76px 0 66px}
-.hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.08;letter-spacing:-.02em;max-width:16ch}
-.hero p.sub{color:#9FC7C9;font-size:19px;margin:20px 0 34px;max-width:52ch}
-.phoneline{display:inline-block;background:#02ADB4;color:#fff;text-decoration:none;
-font-size:clamp(26px,4.4vw,40px);font-weight:900;padding:16px 30px;border-radius:8px;letter-spacing:-.01em}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.chips span{border:1px solid #33555A;color:#B7D6D8;font-size:13px;font-weight:600;
-padding:7px 13px;border-radius:100px}
-.facts{background:#02ADB4;color:#fff;padding:34px 0}
-.factgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
-.factgrid b{display:block;font-size:clamp(26px,4vw,40px);font-weight:900;letter-spacing:-.02em}
-.factgrid span{font-size:13px;opacity:.9}
-@media(max-width:700px){.factgrid{grid-template-columns:repeat(2,1fr);gap:26px}}
-section.pad{padding:66px 0}
-h2{font-size:clamp(25px,3.4vw,36px);letter-spacing:-.02em;margin-bottom:10px}
-.lede{color:#5A7476;margin-bottom:34px;max-width:60ch}
-.svcgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:860px){.svcgrid{grid-template-columns:1fr}}
-.svc{border:1px solid #DCE9E9;border-top:4px solid #02ADB4;border-radius:8px;padding:26px 22px;background:#fff}
-.svc h3{font-size:19px;margin-bottom:9px;letter-spacing:-.01em}
-.svc p{color:#5A7476;font-size:15px}
-.more{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
-.more li{background:#F7FAFA;border:1px solid #E4EFEF;border-radius:6px;padding:13px 16px;font-size:15px;font-weight:600}
-@media(max-width:760px){.more{grid-template-columns:1fr 1fr}}
-.cta{background:#F7FAFA;border-top:1px solid #E2ECEC;padding:60px 0;text-align:center}
-
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #E1EDED;
+display:flex;align-items:center;justify-content:space-between;gap:18px;padding:11px 22px}
+.nav img{height:29px;display:block}
+.nl{display:flex;gap:24px;font-size:14px;font-weight:600}
+.nl a{text-decoration:none;color:#3D5A5C}
+@media(max-width:940px){.nl{display:none}}
+.btn{background:#02ADB4;color:#fff;text-decoration:none;font-weight:800;padding:11px 19px;
+border-radius:6px;font-size:15px;white-space:nowrap}
+.hero{background:#0D2A2E;color:#fff;padding:66px 0 0}
+.hg{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+@media(max-width:940px){.hg{grid-template-columns:1fr;gap:26px}}
+.kick{color:#02ADB4;font-weight:800;letter-spacing:.18em;font-size:12px;text-transform:uppercase}
+.hero h1{font-size:clamp(34px,5.3vw,56px);line-height:1.05;letter-spacing:-.03em;margin:14px 0 18px}
+.hero p{color:#A6CBCD;font-size:18.5px;max-width:50ch}
+.phone{display:inline-block;background:#02ADB4;color:#fff;text-decoration:none;font-weight:900;
+font-size:clamp(24px,3.6vw,34px);padding:15px 28px;border-radius:8px;margin:24px 0 8px;letter-spacing:-.01em}
+.sub{color:#7FA9AB;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;padding-bottom:62px}
+.chips span{border:1px solid #30585C;color:#A6CBCD;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:99px}
+.facts{background:#02ADB4;color:#fff;padding:30px 0}
+.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+.fg b{display:block;font-size:clamp(25px,3.8vw,38px);font-weight:900;letter-spacing:-.03em}
+.fg span{font-size:12.5px;opacity:.92}
+@media(max-width:680px){.fg{grid-template-columns:1fr 1fr;gap:22px}}
+section{padding:62px 0}
+h2{font-size:clamp(26px,3.5vw,38px);letter-spacing:-.03em;line-height:1.15}
+.lede{color:#5C7679;margin:10px 0 32px;max-width:62ch;font-size:16.5px}
+.svc{display:grid;grid-template-columns:220px 1fr;gap:26px;border-top:2px solid #0D2A2E;padding:24px 0}
+@media(max-width:800px){.svc{grid-template-columns:1fr;gap:10px}}
+.svc h3{font-size:21px;letter-spacing:-.02em}
+.svc p{color:#5C7679;font-size:15.5px;margin-bottom:12px}
+.svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.svc li{background:#E8F7F8;color:#017278;font-size:13px;font-weight:700;padding:5px 11px;border-radius:5px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+@media(max-width:820px){.grid3{grid-template-columns:1fr}}
+.mini{border:1px solid #DCEAEA;border-radius:8px;padding:18px}
+.mini b{display:block;font-size:15.5px;margin-bottom:5px}
+.mini span{color:#5C7679;font-size:14px}
+.emg{background:#0D2A2E;color:#fff}
+.emg h2{color:#fff} .emg .lede{color:#A6CBCD}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.step{counter-increment:s;border-top:3px solid #02ADB4;padding-top:16px}
+.step::before{content:counter(s);color:#02ADB4;font-weight:900;font-size:15px}
+.step b{display:block;font-size:17.5px;margin:6px 0 7px;letter-spacing:-.01em}
+.step p{color:#5C7679;font-size:15px}
+.cta{background:#E8F7F8;text-align:center}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+@media(max-width:880px){.two{grid-template-columns:1fr}}
 </style>
-</head>
-<body>
-<div class="dbadge">DRAFT A · DISPATCH</div>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="dbadge">DRAFT A &middot; DISPATCH</div>
 
 <header class="nav">
-  <a href="#top"><img src="assets/logo-nav-teal.svg" alt="Mr. Plumber Remodel and More"></a>
-  <nav class="navlinks">
-    <a href="#services">Services</a><a href="#why">Why us</a><a href="#area">Service area</a>
-  </nav>
-  <a class="btn" href="tel:+19044421781">Call (904) 442-1781</a>
+ <a href="#top"><img src="assets/logo-nav-teal.svg" alt="Mr. Plumber Remodel and More"></a>
+ <nav class="nl"><a href="#services">Services</a><a href="#how">How it works</a><a href="#area">Service area</a><a href="#faq">FAQ</a></nav>
+ <a class="btn" href="tel:+19044421781">Call (904) 442-1781</a>
 </header>
-
-<section class="hero" id="top"><div class="wrap">
+<main id="main">
+<section class="hero" id="top"><div class="wrap"><div class="hg">
+ <div>
+  <p class="kick">Jacksonville &middot; Nassau &middot; Clay &middot; St. Johns</p>
   <h1>Licensed plumbing, answered fast.</h1>
-  <p class="sub">Water heaters, filtration and repipes across Duval, Nassau, Clay &amp; St. Johns counties. Twenty-eight years in the trade. Free estimates, and someone picks up at 2am.</p>
-  <a class="phoneline" href="tel:+19044421781">(904) 442-1781</a>
+  <p>Water heaters, filtration and repipes across Northeast Florida. Twenty-eight years in the trade, free estimates, and someone picks up at two in the morning.</p>
+  <a class="phone" href="tel:+19044421781">(904) 442-1781</a>
+  <p class="sub">Free estimate &middot; FL LIC. CFC1430383</p>
   <div class="chips"><span>Licensed &amp; insured</span><span>Free estimates</span><span>24/7 emergency</span><span>Warranty on work</span><span>Flat rate or hourly</span><span>Senior &amp; military discounts</span></div>
-</div></section>
-
-<section class="facts"><div class="wrap"><div class="factgrid">
-  <div><b>28</b><span>years in the trade</span></div><div><b>4</b><span>counties covered</span></div><div><b>24/7</b><span>emergency service</span></div><div><b>$0</b><span>for an estimate</span></div>
+ </div>
+ <div style="padding-bottom:62px"><div class="photoslot" data-slot="hero" style="min-height:300px;border:2px dashed rgba(255,255,255,.32);color:rgba(255,255,255,.72)"><span>PHOTO SLOT</span><em>Michael on a job — the shot that anchors the page</em></div></div>
 </div></div></section>
 
-<section class="pad" id="services"><div class="wrap">
-  <h2>What we get called for most</h2>
-  <p class="lede">Residential and commercial. If it carries water or gas, we work on it.</p>
-  <div class="svcgrid">
-      <article class="svc ">
-        <h3>Water Heater Repair &amp; Replacement</h3>
-        <p>No hot water, or a tank that's leaking or past its life. Repaired the same day where it can be, replaced where it can't.</p>
-      </article>
-      <article class="svc ">
-        <h3>Water Filtration</h3>
-        <p>Whole-home filtration and softening, sized and installed for your water — not a box off a shelf.</p>
-      </article>
-      <article class="svc ">
-        <h3>Repipes</h3>
-        <p>Failing or corroded supply lines replaced throughout the house, with the drywall put back the way we found it.</p>
-      </article></div>
-  <ul class="more"><li>Sewer lines</li><li>Gas lines</li><li>Drain cleaning</li><li>Fixture repair &amp; install</li><li>Remodel &amp; new-construction plumbing</li><li>Commercial service</li></ul>
+<div class="facts"><div class="wrap"><div class="fg">
+<div><b>28</b><span>years in the trade</span></div><div><b>4</b><span>counties covered</span></div><div><b>24/7</b><span>emergency service</span></div><div><b>$0</b><span>for an estimate</span></div></div></div></div>
+
+<section id="services"><div class="wrap">
+ <h2>What we get called for most</h2>
+ <p class="lede">Residential and commercial. If it carries water or gas, we work on it.</p>
+ <div class="svc"><div><h3>Water Heaters</h3></div><div><p>Repair and replacement, tank or tankless. No hot water, a pilot that won't hold, rusty water, or a tank weeping at the seam — we'll tell you honestly whether it's worth fixing or worth replacing.</p><ul><li>Same-day repair where parts allow</li><li>Tank and tankless replacement</li><li>Thermostat, element &amp; valve work</li></ul></div></div><div class="svc"><div><h3>Water Filtration</h3></div><div><p>Whole-home filtration and softening, sized to your actual water rather than whatever's on the shelf. Northeast Florida water is hard on fixtures, appliances and skin.</p><ul><li>Whole-home systems</li><li>Softeners &amp; conditioners</li><li>Under-sink and point-of-use</li></ul></div></div><div class="svc"><div><h3>Repipes</h3></div><div><p>Failing, corroded or leaking supply lines replaced throughout the house. We plan the route to open the least wall we can, and we put the drywall back.</p><ul><li>Whole-house repipe</li><li>Partial &amp; targeted runs</li><li>Slab leak re-routes</li></ul></div></div><div class="grid3"><div class="mini"><b>Sewer &amp; drain lines</b><span>Clearing, camera inspection, repair and replacement.</span></div><div class="mini"><b>Gas lines</b><span>New runs, extensions, repairs and leak checks.</span></div><div class="mini"><b>Drain cleaning</b><span>Kitchen, bath, laundry and main line blockages.</span></div><div class="mini"><b>Fixtures</b><span>Toilets, sinks, tubs, showers, disposals, hose bibs.</span></div><div class="mini"><b>Remodel plumbing</b><span>Kitchen and bath remodels, additions, new construction rough-in.</span></div><div class="mini"><b>Commercial service</b><span>Shops, offices, restaurants and rental property.</span></div></div>
 </div></section>
 
-<section class="pad" id="why" style="background:#F7FAFA"><div class="wrap">
-  <h2>Why people call us back</h2>
-  <p class="lede">Twenty-eight years on the tools in Northeast Florida. Licensed and insured under FL LIC. CFC1430383.
-  Flat rate or hourly, whichever suits the job. Warranty on the work. Senior and military discounts.
-  Estimates are free and we'll tell you if you don't need the work.</p>
+<section class="emg"><div class="wrap two">
+ <div><h2>Burst pipe at midnight?</h2>
+  <p class="lede">Emergencies don't keep business hours and neither do we. Shut off the main if you can reach it safely, then call &mdash; we'll talk you through the rest on the phone.</p>
+  <a class="phone" href="tel:+19044421781">(904) 442-1781</a></div>
+ <div><div class="photoslot" data-slot="work2" style="min-height:240px;border:2px dashed rgba(255,255,255,.32);color:rgba(255,255,255,.72)"><span>PHOTO SLOT</span><em>Repipe in progress</em></div></div>
 </div></section>
 
-<section class="pad" id="area"><div class="wrap">
-  <h2>Where we work</h2>
-  <p class="lede">Duval, Nassau, Clay &amp; St. Johns counties — including Jacksonville, Fernandina Beach, Yulee, Nassau &amp; Duval County, FL. No storefront, no showroom. We come to you.</p>
+<section id="how"><div class="wrap">
+ <h2>How it works</h2><p class="lede">No call centre, no runaround.</p>
+ <div class="steps"><div class="step"><b>Call and tell us what's happening</b><p>You get a person, not a form. Nights and weekends included when it's an emergency.</p></div><div class="step"><b>Free estimate, in plain English</b><p>We look at it, explain what's actually wrong, and price it flat rate or hourly — whichever suits the job.</p></div><div class="step"><b>Fixed properly, warrantied</b><p>Done once, done right, and backed by a warranty. If you don't need the work, we'll say so.</p></div></div></div></section>
+
+<section style="background:#F6FAFA"><div class="wrap two">
+ <div><div class="photoslot" data-slot="work1" style="min-height:260px;border:2px dashed #BFDCDE;color:#7C9698"><span>PHOTO SLOT</span><em>Water heater install, finished</em></div></div>
+ <div><h2>Twenty-eight years of doing it properly</h2>
+ <p class="lede">Customers keep saying the same three things &mdash; responsive, fast, thorough. That's the whole pitch. Licensed and insured under FL LIC. CFC1430383. Flat rate or hourly, whichever suits the job. Senior and military discounts. And if you don't need the work, we'll tell you.</p></div>
+</div></section>
+
+<section id="area"><div class="wrap">
+ <h2>Where we work</h2>
+ <p class="lede">Duval, Nassau, Clay &amp; St. Johns counties &mdash; Jacksonville, Fernandina Beach, Yulee, Callahan, Orange Park &amp; Ponte Vedra. No storefront and no showroom; we come to you.</p>
+</div></section>
+
+<section id="faq" style="background:#F6FAFA"><div class="wrap" style="max-width:820px">
+ <h2>Questions we get asked</h2><div class="faq" style="margin-top:26px"><details><summary>Do you charge for estimates?</summary><p>No. Estimates are free.</p></details><details><summary>Are you licensed and insured?</summary><p>Yes — licensed and insured in Florida under FL LIC. CFC1430383.</p></details><details><summary>Do you work nights and weekends?</summary><p>Yes. Regular hours are Monday to Friday, with 24/7 emergency service on top of that.</p></details><details><summary>Which areas do you cover?</summary><p>Duval, Nassau, Clay &amp; St. Johns counties — Jacksonville, Fernandina Beach, Yulee, Callahan, Orange Park &amp; Ponte Vedra and everywhere in between.</p></details><details><summary>Do you do commercial work?</summary><p>Yes, residential and commercial both.</p></details><details><summary>Flat rate or hourly?</summary><p>Either. We'll quote whichever makes more sense for the job and tell you before we start.</p></details><details><summary>Do you offer any discounts?</summary><p>Yes — senior and military discounts.</p></details><details><summary>Do you warranty your work?</summary><p>Yes, the work is warrantied.</p></details></div>
 </div></section>
 
 <section class="cta"><div class="wrap">
-  <h2>Need a plumber today?</h2>
-  <p class="lede" style="margin:12px auto 26px">Free estimate. 24/7 for emergencies.</p>
-  <a class="phoneline" href="tel:+19044421781">(904) 442-1781</a>
-</div></section>
-
-<footer style="background:#0E2A2E;color:#9FBFC1;padding:52px 0 34px;font-size:14px">
-  <div class="wrap">
-    <p style="margin-bottom:14px">
-      <a href="tel:+19044421781" style="color:#fff;font-weight:800;font-size:22px;text-decoration:none">(904) 442-1781</a>
-    </p>
-    <p style="margin-bottom:10px"><a href="mailto:Mr.Plumber904@gmail.com" style="color:inherit">Mr.Plumber904@gmail.com</a></p>
-    <p style="margin-bottom:10px">Serving Jacksonville, Fernandina Beach, Yulee, Nassau &amp; Duval County, FL</p>
-    <p style="margin-bottom:22px">Mon–Fri regular hours · 24/7 emergency service</p>
-    <p style="opacity:.75">Mr. Plumber Remodel and More LLC · FL LIC. CFC1430383</p>
-  </div>
+ <h2>Need a plumber today?</h2>
+ <p class="lede" style="margin:12px auto 22px">Free estimate. 24/7 for emergencies.</p>
+ <a class="phone" href="tel:+19044421781">(904) 442-1781</a></div></section>
+</main>
+<footer style="background:#0D2A2E;color:#9CC0C2">
+ <div class="wrap ftgrid">
+  <div><h4>Call</h4><a class="fphone" href="tel:+19044421781">(904) 442-1781</a>
+   <p><a href="mailto:Mr.Plumber904@gmail.com">Mr.Plumber904@gmail.com</a></p>
+   <p>Mon&ndash;Fri regular hours<br>24/7 emergency service</p></div>
+  <div><h4>Services</h4><p>Water heaters &middot; Filtration &middot; Repipes<br>
+   Sewer &amp; drain &middot; Gas lines &middot; Fixtures<br>Remodel plumbing &middot; Commercial</p></div>
+  <div><h4>Service area</h4><p>Duval, Nassau, Clay &amp; St. Johns counties<br>Jacksonville, Fernandina Beach, Yulee, Callahan, Orange Park &amp; Ponte Vedra</p></div>
+ </div>
+ <div class="wrap ftbase"><p>Mr. Plumber Remodel and More LLC &middot; FL LIC. CFC1430383</p><p>Serving Jacksonville, Fernandina Beach, Yulee, Nassau &amp; Duval County, FL</p></div>
 </footer>
+<style>
+footer{padding:56px 0 30px;font-size:14.5px}
+.ftgrid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:34px;padding-bottom:30px}
+@media(max-width:820px){.ftgrid{grid-template-columns:1fr;gap:26px}}
+footer h4{color:#fff;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+.fphone{color:#fff;font-weight:800;font-size:24px;text-decoration:none;display:inline-block;margin-bottom:8px}
+footer p{margin-bottom:6px}
+.ftbase{border-top:1px solid rgba(128,160,160,.28);padding-top:20px;opacity:.85;
+display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
 <div class="callbar"><a href="tel:+19044421781">Call (904) 442-1781</a></div>
 </body></html>
