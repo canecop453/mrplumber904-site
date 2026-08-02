@@ -78,16 +78,28 @@ border-radius:16px;margin-top:24px;overflow:hidden}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:820px){.steps{grid-template-columns:1fr}}
 .step{background:#fff;border-radius:14px;padding:24px 22px;box-shadow:0 2px 12px rgba(13,42,46,.06)}
-.bgfix{position:fixed;inset:0;z-index:-1;background:#DCEDEE url('assets/bg-fixtures.svg') center/cover no-repeat}
+/* ---- fixed photographic backdrop, behind EVERYTHING ---- */
+/* swap bg-fixtures.svg for the client's own photo (bg-photo.jpg) — nothing else changes */
+.bgfix{position:fixed;inset:0;z-index:-2;background:#DCEDEE url('assets/bg-fixtures.svg') center/cover no-repeat}
+.bgscrim{position:fixed;inset:0;z-index:-1;background:rgba(255,255,255,.30)}
 main,header,footer,.facts,.callbar{position:relative}
-section,.facts{background:#fff}
-section.window{background:transparent;padding:0;text-align:center;
+/* content sits on frosted panels so the picture reads through behind the words */
+section{background:rgba(255,255,255,.80);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+section+section{border-top:1px solid rgba(255,255,255,.55)}
+.facts{background:rgba(13,42,46,.90);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.hero{background:rgba(2,173,180,.90);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+footer{backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.slab,.strip{background:rgba(255,255,255,.75)}
+.cell{background:transparent}
+.step{background:rgba(255,255,255,.92)}
+/* open windows — nothing over the picture at all */
+section.window{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;
+border-top:none;padding:0;text-align:center;
 min-height:min(78vh,620px);display:flex;align-items:center;justify-content:center}
 section.window .caption{background:rgba(255,255,255,.93);display:inline-block;
 padding:20px 30px;border-radius:16px;font-weight:800;color:#017278;font-size:clamp(17px,2.2vw,24px);
 box-shadow:0 6px 30px rgba(13,42,46,.16);max-width:22ch;line-height:1.35}
 section.window .caption small{display:block;font-weight:600;color:#5C7679;font-size:14px;margin-top:8px}
-section#how,section#faq{background:rgba(255,255,255,.96)}
 .step i{font-style:normal;font-weight:900;color:#02ADB4;font-size:26px;letter-spacing:-.03em}
 .step b{display:block;font-size:17.5px;margin:6px 0 7px;letter-spacing:-.01em}
 .step p{color:#5C7679;font-size:15px}
@@ -102,6 +114,7 @@ section#how,section#faq{background:rgba(255,255,255,.96)}
  <a class="btn" href="tel:+19044421781">Call (904) 442-1781</a>
 </header>
 <div class="bgfix" aria-hidden="true"></div>
+<div class="bgscrim" aria-hidden="true"></div>
 <main id="main">
 <section class="hero" id="top"><div class="wrap">
  <img class="block" src="assets/logo-block-transparent.svg" alt="Mr. Plumber Remodel and More &mdash; FL LIC. CFC1430383">
