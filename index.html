@@ -42,9 +42,10 @@ body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-
 /* nav */
 .nav{background:#fff;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;
 gap:16px;position:sticky;top:0;z-index:50;box-shadow:0 3px 20px rgba(13,42,46,.18)}
-.nav img{height:64px;width:auto;display:block;transition:transform .18s}
+.nav img{width:clamp(230px,26vw,330px);height:auto;display:block;transition:transform .18s}
 .nav a.brand:hover img{transform:translateY(-2px) scale(1.02)}
-@media(max-width:640px){.nav img{height:46px}.nav{padding:9px 14px}}
+@media(max-width:1000px){.nav img{width:clamp(190px,40vw,260px)}}
+@media(max-width:640px){.nav img{width:min(200px,52vw)}.nav{padding:9px 14px}}
 .nl{display:flex;gap:24px;font-size:14px;font-weight:700}
 .nl a{text-decoration:none;color:#0D2A2E;padding:4px 0;position:relative}
 .nl a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:3px;background:#02ADB4;transition:right .2s}
