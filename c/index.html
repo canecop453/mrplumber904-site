@@ -40,9 +40,11 @@ body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-
 .promo b{color:#02ADB4} .promo a{color:#fff}
 
 /* nav */
-.nav{background:#fff;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;
+.nav{background:#fff;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;
 gap:16px;position:sticky;top:0;z-index:50;box-shadow:0 3px 20px rgba(13,42,46,.18)}
-.nav img{height:30px;display:block}
+.nav img{height:64px;width:auto;display:block;transition:transform .18s}
+.nav a.brand:hover img{transform:translateY(-2px) scale(1.02)}
+@media(max-width:640px){.nav img{height:46px}.nav{padding:9px 14px}}
 .nl{display:flex;gap:24px;font-size:14px;font-weight:700}
 .nl a{text-decoration:none;color:#0D2A2E;padding:4px 0;position:relative}
 .nl a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:3px;background:#02ADB4;transition:right .2s}
@@ -180,7 +182,7 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
 
 <div class="promo">Free estimates &middot; <b>24/7 emergency service</b> &middot; Senior &amp; military discounts &middot; FL LIC. CFC1430383</div>
 <header class="nav">
- <a href="#top"><img src="../assets/logo-nav-teal.svg" alt="Mr. Plumber Remodel and More"></a>
+ <a class="brand" href="#top"><img src="../assets/logo-nav-3d.svg" alt="Mr. Plumber Remodel and More"></a>
  <nav class="nl"><a href="#services">Services</a><a href="#why">Why us</a><a href="#how">How it works</a>
  <a href="#areas">Service area</a><a href="#faq">FAQ</a></nav>
  <div class="navcta">
