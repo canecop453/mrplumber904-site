@@ -33,139 +33,237 @@ justify-content:space-between;gap:16px;align-items:center}
 .faq p{color:#5C7679;margin-top:10px;font-size:15.5px;max-width:70ch}
 
 body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-.nav{background:#02ADB4;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;
-gap:18px;position:sticky;top:0;z-index:50}
-.nav img{height:29px;display:block}
-.nl{display:flex;gap:24px;font-size:14px;font-weight:700}
-.nl a{text-decoration:none;color:#E9FCFD}
-@media(max-width:940px){.nl{display:none}}
-.btn{background:#fff;color:#017278;text-decoration:none;font-weight:900;padding:10px 19px;border-radius:6px;font-size:15px;white-space:nowrap}
-.hero{background:#02ADB4;color:#fff;padding:24px 0 70px;text-align:center}
-.hero img.block{width:min(400px,82%);height:auto;margin:0 auto 28px;display:block}
-.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.08;letter-spacing:-.03em;max-width:19ch;margin:0 auto}
-.hero p{font-size:18.5px;color:#CFF3F5;margin:18px auto 26px;max-width:54ch}
-.big{display:inline-block;background:#fff;color:#017278;text-decoration:none;font-weight:900;
-font-size:clamp(23px,3.6vw,34px);padding:15px 30px;border-radius:10px;letter-spacing:-.01em}
-.chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:24px}
-.chips span{background:rgba(255,255,255,.17);color:#fff;font-size:12.5px;font-weight:700;padding:6px 13px;border-radius:99px}
-.facts{background:#0D2A2E;color:#fff;padding:42px 0}
-.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
-.fg b{display:block;font-size:clamp(26px,4vw,42px);font-weight:900;color:#02ADB4;letter-spacing:-.03em}
-.fg span{font-size:12.5px;color:#9CC0C2}
-@media(max-width:680px){.fg{grid-template-columns:1fr 1fr;gap:22px}}
-section{padding:64px 0}
-h2{font-size:clamp(27px,3.6vw,42px);letter-spacing:-.03em;line-height:1.12}
-.lede{color:#5C7679;margin:12px 0 32px;max-width:62ch;font-size:16.5px}
-.slab{border:3px solid #02ADB4;border-radius:16px;overflow:hidden}
-.slabgrid{display:grid;grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.slabgrid{grid-template-columns:1fr}}
-.cell{padding:30px 26px;border-right:3px solid #02ADB4}
-.cell:last-child{border-right:none}
-@media(max-width:900px){.cell{border-right:none;border-bottom:3px solid #02ADB4}.cell:last-child{border-bottom:none}}
-.cell h3{font-size:21px;color:#017278;letter-spacing:-.02em;margin-bottom:9px}
-.cell p{color:#5C7679;font-size:15.5px;margin-bottom:12px}
-.cell ul{list-style:none} .cell li{font-size:14px;font-weight:700;color:#017278;padding:4px 0}
-.strip{display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid #02ADB4;border-left:3px solid #02ADB4;
-border-radius:16px;margin-top:24px;overflow:hidden}
-@media(max-width:760px){.strip{grid-template-columns:1fr 1fr}}
-.strip div{padding:16px 18px;border-right:3px solid #02ADB4;border-bottom:3px solid #02ADB4}
-.strip b{display:block;font-size:15px;color:#017278}
-.strip span{font-size:13.5px;color:#5C7679}
-.emg{background:#02ADB4;color:#fff}
-.emg h2{color:#fff} .emg .lede{color:#CFF3F5}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}
-@media(max-width:880px){.two{grid-template-columns:1fr;gap:26px}}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:820px){.steps{grid-template-columns:1fr}}
-.step{background:#fff;border-radius:14px;padding:24px 22px;box-shadow:0 2px 12px rgba(13,42,46,.06)}
-/* ---- fixed photographic backdrop, behind EVERYTHING ---- */
-/* swap bg-fixtures.svg for the client's own photo (bg-photo.jpg) — nothing else changes */
+
+/* fixed backdrop, behind everything */
 .bgfix{position:fixed;inset:0;z-index:-2;background:#DCEDEE url('../assets/bg-fixtures.svg') center/cover no-repeat}
 .bgscrim{position:fixed;inset:0;z-index:-1;background:rgba(255,255,255,.30)}
-main,header,footer,.facts,.callbar{position:relative}
-/* content sits on frosted panels so the picture reads through behind the words */
-section{background:rgba(255,255,255,.80);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
-section+section{border-top:1px solid rgba(255,255,255,.55)}
-.facts{background:rgba(13,42,46,.90);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
-.hero{background:rgba(2,173,180,.90);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-footer{backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
-.slab,.strip{background:rgba(255,255,255,.75)}
-.cell{background:transparent}
-.step{background:rgba(255,255,255,.92)}
-/* open windows — nothing over the picture at all */
-section.window{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;
-border-top:none;padding:0;text-align:center;
-min-height:min(78vh,620px);display:flex;align-items:center;justify-content:center}
-section.window .caption{background:rgba(255,255,255,.93);display:inline-block;
-padding:20px 30px;border-radius:16px;font-weight:800;color:#017278;font-size:clamp(17px,2.2vw,24px);
-box-shadow:0 6px 30px rgba(13,42,46,.16);max-width:22ch;line-height:1.35}
-section.window .caption small{display:block;font-weight:600;color:#5C7679;font-size:14px;margin-top:8px}
-.step i{font-style:normal;font-weight:900;color:#02ADB4;font-size:26px;letter-spacing:-.03em}
-.step b{display:block;font-size:17.5px;margin:6px 0 7px;letter-spacing:-.01em}
+main,header,footer,.callbar{position:relative}
+
+/* ---------- nav ---------- */
+.nav{background:rgba(2,173,180,.97);backdrop-filter:blur(8px);padding:12px 22px;display:flex;
+align-items:center;justify-content:space-between;gap:18px;position:sticky;top:0;z-index:50;
+box-shadow:0 2px 20px rgba(13,42,46,.12)}
+.nav img{height:29px;display:block}
+.nl{display:flex;gap:24px;font-size:14px;font-weight:700}
+.nl a{text-decoration:none;color:#E9FCFD;position:relative;padding:4px 0}
+.nl a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:#fff;transition:right .22s}
+.nl a:hover::after{right:0}
+@media(max-width:940px){.nl{display:none}}
+.btn{background:#fff;color:#017278;text-decoration:none;font-weight:900;padding:10px 19px;
+border-radius:8px;font-size:15px;white-space:nowrap;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.18)}
+
+/* ---------- hero, angled bottom ---------- */
+.hero{background:linear-gradient(155deg,#0D2A2E 0%,#0B4750 42%,#017278 100%);color:#fff;
+padding:44px 0 150px;text-align:center;position:relative;overflow:hidden;
+clip-path:polygon(0 0,100% 0,100% calc(100% - 62px),0 100%)}
+.hero::before{content:"";position:absolute;width:620px;height:620px;border-radius:50%;
+background:radial-gradient(circle,rgba(2,173,180,.55),transparent 68%);top:-240px;right:-160px}
+.hero::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+background:radial-gradient(circle,rgba(2,173,180,.32),transparent 70%);bottom:-160px;left:-140px}
+.hero>*{position:relative;z-index:2}
+.hero img.block{width:min(360px,78%);height:auto;margin:0 auto 26px;display:block}
+.hero h1{font-size:clamp(36px,6vw,68px);line-height:1;letter-spacing:-.04em;max-width:15ch;margin:0 auto;font-weight:800}
+.hero h1 em{font-style:normal;color:#02ADB4;display:block}
+.hero p{font-size:clamp(16px,2vw,19.5px);color:#B8E7EA;margin:20px auto 30px;max-width:52ch}
+.big{display:inline-block;background:#fff;color:#017278;text-decoration:none;font-weight:900;
+font-size:clamp(24px,4vw,38px);padding:17px 38px;border-radius:14px;letter-spacing:-.02em;
+box-shadow:0 10px 42px rgba(2,173,180,.55);transition:transform .16s,box-shadow .16s}
+.big:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 54px rgba(2,173,180,.7)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:26px}
+.chips span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);color:#DFF7F8;
+font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:99px}
+
+/* ---------- stats card straddling the hero edge ---------- */
+.statwrap{margin-top:-92px;position:relative;z-index:5}
+.stats{background:#fff;border-radius:22px;box-shadow:0 18px 60px rgba(13,42,46,.18);
+display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}}
+.stats div{padding:26px 12px;text-align:center;border-right:1px solid #E6F1F1}
+.stats div:last-child{border-right:none}
+@media(max-width:700px){.stats div:nth-child(2){border-right:none}
+.stats div:nth-child(-n+2){border-bottom:1px solid #E6F1F1}}
+.stats b{display:block;font-size:clamp(30px,5vw,48px);font-weight:900;letter-spacing:-.045em;
+background:linear-gradient(135deg,#02ADB4,#017278);-webkit-background-clip:text;background-clip:text;
+-webkit-text-fill-color:transparent;line-height:1}
+.stats span{font-size:12.5px;color:#5C7679;font-weight:600;letter-spacing:.03em}
+
+/* ---------- ticker ---------- */
+.ticker{background:#0D2A2E;color:#8FC5C8;overflow:hidden;padding:13px 0;white-space:nowrap;
+margin-top:56px;transform:rotate(-1.1deg) scale(1.03)}
+.tick{display:inline-block;animation:slide 34s linear infinite;font-weight:700;
+font-size:14px;letter-spacing:.16em;text-transform:uppercase}
+.tick i{font-style:normal;color:#02ADB4;margin:0 18px}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.tick{animation:none}}
+
+/* ---------- sections ---------- */
+section{background:rgba(255,255,255,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+padding:74px 0;position:relative}
+h2{font-size:clamp(28px,4vw,46px);letter-spacing:-.035em;line-height:1.08;font-weight:800}
+h2 .u{background:linear-gradient(180deg,transparent 62%,rgba(2,173,180,.32) 62%)}
+.lede{color:#5C7679;margin:14px 0 40px;max-width:60ch;font-size:17px}
+
+/* ---------- service cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:20px;padding:30px 26px;position:relative;overflow:hidden;
+box-shadow:0 4px 24px rgba(13,42,46,.08);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 46px rgba(13,42,46,.16)}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;
+background:linear-gradient(90deg,#02ADB4,#017278)}
+.card .ring{width:56px;height:56px;border-radius:17px;background:linear-gradient(135deg,#E8F7F8,#D3F1F3);
+display:flex;align-items:center;justify-content:center;color:#017278;margin-bottom:16px}
+.ico{width:28px;height:28px}
+.card h3{font-size:21px;letter-spacing:-.025em;margin-bottom:9px;font-weight:800}
+.card p{color:#5C7679;font-size:15.5px;margin-bottom:14px}
+.card ul{list-style:none}
+.card li{font-size:14px;font-weight:700;color:#017278;padding:6px 0 6px 24px;position:relative}
+.card li::before{content:"";position:absolute;left:2px;top:11px;width:9px;height:9px;
+border-radius:99px;background:#02ADB4;box-shadow:0 0 0 4px rgba(2,173,180,.16)}
+
+/* ---------- more-services tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+@media(max-width:760px){.tiles{grid-template-columns:1fr 1fr}}
+.tile{background:#fff;border-radius:14px;padding:18px 20px;border-left:4px solid #02ADB4;
+box-shadow:0 2px 14px rgba(13,42,46,.06);transition:transform .18s,border-color .18s}
+.tile:hover{transform:translateX(4px);border-left-color:#0D2A2E}
+.tile b{display:block;font-size:15px;margin-bottom:3px}
+.tile span{color:#5C7679;font-size:13.5px}
+
+/* ---------- emergency, angled both edges ---------- */
+.emg{background:linear-gradient(135deg,#02ADB4,#017278);color:#fff;backdrop-filter:none;
+padding:104px 0;clip-path:polygon(0 52px,100% 0,100% calc(100% - 52px),0 100%);
+margin:-30px 0;overflow:hidden}
+.emg::after{content:"";position:absolute;right:-70px;bottom:-70px;width:340px;height:340px;
+border-radius:50%;background:rgba(255,255,255,.09)}
+.emg h2,.emg .lede{color:#fff;position:relative;z-index:2}
+.emg .lede{color:#DAF6F7}
+.emg .big{background:#fff;color:#017278;box-shadow:0 10px 34px rgba(0,0,0,.22);position:relative;z-index:2}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:880px){.two{grid-template-columns:1fr;gap:26px}}
+
+/* ---------- steps with a connecting rail ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.steps::before{content:"";position:absolute;top:32px;left:12%;right:12%;height:3px;
+background:repeating-linear-gradient(90deg,rgba(2,173,180,.45) 0 12px,transparent 12px 24px)}
+@media(max-width:820px){.steps::before{display:none}}
+.step{text-align:center;position:relative;z-index:2}
+.step i{font-style:normal;width:64px;height:64px;border-radius:50%;background:#fff;
+border:3px solid #02ADB4;color:#017278;display:flex;align-items:center;justify-content:center;
+font-weight:900;font-size:23px;margin:0 auto 16px;box-shadow:0 6px 22px rgba(2,173,180,.26)}
+.step b{display:block;font-size:18.5px;margin-bottom:8px;letter-spacing:-.02em}
 .step p{color:#5C7679;font-size:15px}
+
+/* ---------- open window over the backdrop ---------- */
+section.window{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;padding:0;
+text-align:center;min-height:min(72vh,560px);display:flex;align-items:center;justify-content:center}
+section.window .caption{background:rgba(255,255,255,.94);display:inline-block;padding:22px 32px;
+border-radius:18px;font-weight:800;color:#017278;font-size:clamp(18px,2.4vw,26px);
+box-shadow:0 10px 40px rgba(13,42,46,.2);max-width:22ch;line-height:1.3}
+section.window .caption small{display:block;font-weight:600;color:#5C7679;font-size:14px;margin-top:9px}
+
+/* ---------- area band ---------- */
+.areaband{background:#0D2A2E;color:#fff;backdrop-filter:none}
+.areaband h2{color:#fff} .areaband .lede{color:#A6CBCD}
+.pins{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.pins span{border:1px solid rgba(255,255,255,.28);color:#CDE9EA;font-size:13.5px;font-weight:600;
+padding:8px 15px;border-radius:99px}
+
+/* ---------- faq ---------- */
+.faq details{background:#fff;border-radius:12px;margin-bottom:10px;padding:16px 20px;
+border-bottom:none;box-shadow:0 2px 10px rgba(13,42,46,.05)}
+.faq summary{font-size:16.5px}
+
+/* ---------- scroll reveal ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 </style>
 </head><body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="dbadge">DRAFT C &middot; BOLD TEAL</div>
 
+<div class="bgfix" aria-hidden="true"></div>
+<div class="bgscrim" aria-hidden="true"></div>
 <header class="nav">
  <a href="#top"><img src="../assets/logo-nav-white.svg" alt="Mr. Plumber Remodel and More"></a>
  <nav class="nl"><a href="#services">Services</a><a href="#how">How it works</a><a href="#area">Service area</a><a href="#faq">FAQ</a></nav>
  <a class="btn" href="tel:+19044421781">Call (904) 442-1781</a>
 </header>
-<div class="bgfix" aria-hidden="true"></div>
-<div class="bgscrim" aria-hidden="true"></div>
 <main id="main">
+
 <section class="hero" id="top"><div class="wrap">
  <img class="block" src="../assets/logo-block-transparent.svg" alt="Mr. Plumber Remodel and More &mdash; FL LIC. CFC1430383">
- <h1>Northeast Florida's plumber for twenty-eight years.</h1>
+ <h1>Northeast Florida's plumber <em>for 28 years.</em></h1>
  <p>Water heaters, filtration, repipes and everything after. Free estimates, 24/7 for emergencies, and a warranty on the work.</p>
  <a class="big" href="tel:+19044421781">(904) 442-1781</a>
  <div class="chips"><span>Licensed &amp; insured</span><span>Free estimates</span><span>24/7 emergency</span><span>Warranty on work</span><span>Flat rate or hourly</span><span>Senior &amp; military discounts</span></div>
 </div></section>
 
-<div class="facts"><div class="wrap"><div class="fg">
-<div><b>28</b><span>years in the trade</span></div><div><b>4</b><span>counties covered</span></div><div><b>24/7</b><span>emergency service</span></div><div><b>$0</b><span>for an estimate</span></div></div></div></div>
+<div class="wrap statwrap"><div class="stats rv"><div><b>28</b><span>years in the trade</span></div><div><b>4</b><span>counties covered</span></div><div><b>24/7</b><span>emergency service</span></div><div><b>$0</b><span>for an estimate</span></div></div></div>
+
+<div class="ticker"><div class="tick">Jacksonville<i>&#9670;</i>Fernandina Beach<i>&#9670;</i>Yulee<i>&#9670;</i>Callahan<i>&#9670;</i>Orange Park<i>&#9670;</i>Ponte Vedra<i>&#9670;</i>Duval County<i>&#9670;</i>Nassau County<i>&#9670;</i>Clay County<i>&#9670;</i>St. Johns County<i>&#9670;</i>Jacksonville<i>&#9670;</i>Fernandina Beach<i>&#9670;</i>Yulee<i>&#9670;</i>Callahan<i>&#9670;</i>Orange Park<i>&#9670;</i>Ponte Vedra<i>&#9670;</i>Duval County<i>&#9670;</i>Nassau County<i>&#9670;</i>Clay County<i>&#9670;</i>St. Johns County<i>&#9670;</i></div></div>
 
 <section id="services"><div class="wrap">
- <h2>What we get called for most</h2>
- <p class="lede">Residential and commercial, across Duval, Nassau, Clay &amp; St. Johns counties.</p>
- <div class="slab"><div class="slabgrid"><div class="cell"><h3>Water Heaters</h3><p>Repair and replacement, tank or tankless. No hot water, a pilot that won't hold, rusty water, or a tank weeping at the seam — we'll tell you honestly whether it's worth fixing or worth replacing.</p><ul><li>&middot; Same-day repair where parts allow</li><li>&middot; Tank and tankless replacement</li><li>&middot; Thermostat, element &amp; valve work</li></ul></div><div class="cell"><h3>Water Filtration</h3><p>Whole-home filtration and softening, sized to your actual water rather than whatever's on the shelf. Northeast Florida water is hard on fixtures, appliances and skin.</p><ul><li>&middot; Whole-home systems</li><li>&middot; Softeners &amp; conditioners</li><li>&middot; Under-sink and point-of-use</li></ul></div><div class="cell"><h3>Repipes</h3><p>Failing, corroded or leaking supply lines replaced throughout the house. We plan the route to open the least wall we can, and we put the drywall back.</p><ul><li>&middot; Whole-house repipe</li><li>&middot; Partial &amp; targeted runs</li><li>&middot; Slab leak re-routes</li></ul></div></div></div>
- <div class="strip"><div><b>Sewer &amp; drain lines</b><span>Clearing, camera inspection, repair and replacement.</span></div><div><b>Gas lines</b><span>New runs, extensions, repairs and leak checks.</span></div><div><b>Drain cleaning</b><span>Kitchen, bath, laundry and main line blockages.</span></div><div><b>Fixtures</b><span>Toilets, sinks, tubs, showers, disposals, hose bibs.</span></div><div><b>Remodel plumbing</b><span>Kitchen and bath remodels, additions, new construction rough-in.</span></div><div><b>Commercial service</b><span>Shops, offices, restaurants and rental property.</span></div></div></div></section>
-
-<section class="window"><div class="wrap">
- <span class="caption">Kitchens &amp; baths, finished properly<small>Fixtures, faucets and finish plumbing across Northeast Florida</small></span>
+ <h2 class="rv">What we get <span class="u">called for most</span></h2>
+ <p class="lede rv">Residential and commercial, across Duval, Nassau, Clay &amp; St. Johns counties.</p>
+ <div class="cards"><article class="card rv"><div class="ring"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="4"/><path d="M9 2.5V1M15 2.5V1M8 8h8M8 12h8"/><circle cx="12" cy="17" r="2"/></svg></div><h3>Water Heaters</h3><p>Repair and replacement, tank or tankless. No hot water, a pilot that won't hold, rusty water, or a tank weeping at the seam — we'll tell you honestly whether it's worth fixing or worth replacing.</p><ul><li>Same-day repair where parts allow</li><li>Tank and tankless replacement</li><li>Thermostat, element &amp; valve work</li></ul></article><article class="card rv"><div class="ring"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/><path d="M8.5 13h7M10 16.5h4"/></svg></div><h3>Water Filtration</h3><p>Whole-home filtration and softening, sized to your actual water rather than whatever's on the shelf. Northeast Florida water is hard on fixtures, appliances and skin.</p><ul><li>Whole-home systems</li><li>Softeners &amp; conditioners</li><li>Under-sink and point-of-use</li></ul></article><article class="card rv"><div class="ring"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h7a3 3 0 0 1 3 3v3a3 3 0 0 0 3 3h5"/><rect x="1" y="5.5" width="3" height="5" rx="1"/><rect x="20" y="15" width="3" height="5" rx="1"/><path d="M13 11h4"/></svg></div><h3>Repipes</h3><p>Failing, corroded or leaking supply lines replaced throughout the house. We plan the route to open the least wall we can, and we put the drywall back.</p><ul><li>Whole-house repipe</li><li>Partial &amp; targeted runs</li><li>Slab leak re-routes</li></ul></article></div>
+ <div class="tiles"><div class="tile rv"><b>Sewer &amp; drain lines</b><span>Clearing, camera inspection, repair and replacement.</span></div><div class="tile rv"><b>Gas lines</b><span>New runs, extensions, repairs and leak checks.</span></div><div class="tile rv"><b>Drain cleaning</b><span>Kitchen, bath, laundry and main line blockages.</span></div><div class="tile rv"><b>Fixtures</b><span>Toilets, sinks, tubs, showers, disposals, hose bibs.</span></div><div class="tile rv"><b>Remodel plumbing</b><span>Kitchen and bath remodels, additions, new construction rough-in.</span></div><div class="tile rv"><b>Commercial service</b><span>Shops, offices, restaurants and rental property.</span></div></div>
 </div></section>
 
-<section><div class="wrap two">
- <div><div class="photoslot" data-slot="work1" style="min-height:300px;border:2px dashed #BFDCDE;color:#7C9698"><span>PHOTO SLOT</span><em>Water heater install, finished</em></div></div>
- <div><div class="photoslot" data-slot="work3" style="min-height:300px;border:2px dashed #BFDCDE;color:#7C9698"><span>PHOTO SLOT</span><em>Before and after</em></div></div>
+<section class="window"><div class="wrap">
+ <span class="caption rv">Kitchens &amp; baths, finished properly
+ <small>Fixtures, faucets and finish plumbing across Northeast Florida</small></span>
 </div></section>
 
 <section class="emg"><div class="wrap two">
- <div><h2>Burst pipe at midnight?</h2>
- <p class="lede">Emergencies don't keep business hours and neither do we. Shut the main off if you can reach it safely, then call &mdash; we'll talk you through the rest.</p>
- <a class="big" href="tel:+19044421781">(904) 442-1781</a></div>
- <div><div class="photoslot" data-slot="work2" style="min-height:250px;border:2px dashed rgba(255,255,255,.32);color:rgba(255,255,255,.72)"><span>PHOTO SLOT</span><em>Repipe in progress</em></div></div>
+ <div><h2 class="rv">Burst pipe at midnight?</h2>
+ <p class="lede rv">Emergencies don't keep business hours and neither do we. Shut the main off if you can reach it safely, then call &mdash; we'll talk you through the rest.</p>
+ <a class="big rv" href="tel:+19044421781">(904) 442-1781</a></div>
+ <div class="rv"><div class="photoslot" data-slot="work2" style="min-height:250px;border:2px dashed rgba(255,255,255,.32);color:rgba(255,255,255,.72)"><span>PHOTO SLOT</span><em>Repipe in progress</em></div></div>
 </div></section>
 
 <section id="how"><div class="wrap">
- <h2>How it works</h2><p class="lede">No call centre, no runaround.</p>
- <div class="steps"><div class="step"><i>1</i><b>Call and tell us what's happening</b><p>You get a person, not a form. Nights and weekends included when it's an emergency.</p></div><div class="step"><i>2</i><b>Free estimate, in plain English</b><p>We look at it, explain what's actually wrong, and price it flat rate or hourly — whichever suits the job.</p></div><div class="step"><i>3</i><b>Fixed properly, warrantied</b><p>Done once, done right, and backed by a warranty. If you don't need the work, we'll say so.</p></div></div></div></section>
-
-<section class="window"><div class="wrap">
- <span class="caption">Licensed &amp; insured<small>FL LIC. CFC1430383 &middot; free estimates &middot; 24/7 emergency</small></span>
+ <h2 class="rv">How it <span class="u">works</span></h2>
+ <p class="lede rv">No call centre, no runaround.</p>
+ <div class="steps"><div class="step rv"><i>1</i><b>Call and tell us what's happening</b><p>You get a person, not a form. Nights and weekends included when it's an emergency.</p></div><div class="step rv"><i>2</i><b>Free estimate, in plain English</b><p>We look at it, explain what's actually wrong, and price it flat rate or hourly — whichever suits the job.</p></div><div class="step rv"><i>3</i><b>Fixed properly, warrantied</b><p>Done once, done right, and backed by a warranty. If you don't need the work, we'll say so.</p></div></div>
 </div></section>
 
-<section id="area"><div class="wrap">
- <h2>Where we work</h2>
- <p class="lede">Duval, Nassau, Clay &amp; St. Johns counties &mdash; Jacksonville, Fernandina Beach, Yulee, Callahan, Orange Park &amp; Ponte Vedra. No storefront; we come to you.</p>
- <a class="big" style="background:#02ADB4;color:#fff" href="tel:+19044421781">(904) 442-1781</a></div></section>
+<section><div class="wrap two">
+ <div class="rv"><div class="photoslot" data-slot="work1" style="min-height:300px;border:2px dashed #BFDCDE;color:#7C9698"><span>PHOTO SLOT</span><em>Water heater install, finished</em></div></div>
+ <div class="rv"><div class="photoslot" data-slot="work3" style="min-height:300px;border:2px dashed #BFDCDE;color:#7C9698"><span>PHOTO SLOT</span><em>Before and after</em></div></div>
+</div></section>
 
-<section id="faq"><div class="wrap" style="max-width:820px">
- <h2>Questions we get asked</h2><div class="faq" style="margin-top:26px"><details><summary>Do you charge for estimates?</summary><p>No. Estimates are free.</p></details><details><summary>Are you licensed and insured?</summary><p>Yes — licensed and insured in Florida under FL LIC. CFC1430383.</p></details><details><summary>Do you work nights and weekends?</summary><p>Yes. Regular hours are Monday to Friday, with 24/7 emergency service on top of that.</p></details><details><summary>Which areas do you cover?</summary><p>Duval, Nassau, Clay &amp; St. Johns counties — Jacksonville, Fernandina Beach, Yulee, Callahan, Orange Park &amp; Ponte Vedra and everywhere in between.</p></details><details><summary>Do you do commercial work?</summary><p>Yes, residential and commercial both.</p></details><details><summary>Flat rate or hourly?</summary><p>Either. We'll quote whichever makes more sense for the job and tell you before we start.</p></details><details><summary>Do you offer any discounts?</summary><p>Yes — senior and military discounts.</p></details><details><summary>Do you warranty your work?</summary><p>Yes, the work is warrantied.</p></details></div>
+<section class="areaband" id="area"><div class="wrap">
+ <h2 class="rv">Where we work</h2>
+ <p class="lede rv">Duval, Nassau, Clay &amp; St. Johns counties &mdash; no storefront, no showroom. We come to you.</p>
+ <div class="pins rv"><span>Jacksonville</span><span>Fernandina Beach</span><span>Yulee</span><span>Callahan</span><span>Orange Park</span><span>Ponte Vedra</span><span>Duval</span><span>Nassau</span><span>Clay</span><span>St. Johns</span></div>
+</div></section>
+
+<section id="faq"><div class="wrap" style="max-width:840px">
+ <h2 class="rv">Questions we get asked</h2>
+ <div class="faq rv" style="margin-top:26px"><details><summary>Do you charge for estimates?</summary><p>No. Estimates are free.</p></details><details><summary>Are you licensed and insured?</summary><p>Yes — licensed and insured in Florida under FL LIC. CFC1430383.</p></details><details><summary>Do you work nights and weekends?</summary><p>Yes. Regular hours are Monday to Friday, with 24/7 emergency service on top of that.</p></details><details><summary>Which areas do you cover?</summary><p>Duval, Nassau, Clay &amp; St. Johns counties — Jacksonville, Fernandina Beach, Yulee, Callahan, Orange Park &amp; Ponte Vedra and everywhere in between.</p></details><details><summary>Do you do commercial work?</summary><p>Yes, residential and commercial both.</p></details><details><summary>Flat rate or hourly?</summary><p>Either. We'll quote whichever makes more sense for the job and tell you before we start.</p></details><details><summary>Do you offer any discounts?</summary><p>Yes — senior and military discounts.</p></details><details><summary>Do you warranty your work?</summary><p>Yes, the work is warrantied.</p></details></div>
+</div></section>
+
+<section style="text-align:center"><div class="wrap">
+ <h2 class="rv">Need a plumber today?</h2>
+ <p class="lede rv" style="margin:14px auto 26px">Free estimate. 24/7 for emergencies.</p>
+ <a class="big rv" style="background:linear-gradient(135deg,#02ADB4,#017278);color:#fff" href="tel:+19044421781">(904) 442-1781</a>
 </div></section>
 </main>
+<script>
+(function(){
+ var els=document.querySelectorAll('.rv');
+ if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+   els.forEach(function(e){e.classList.add('in');}); return; }
+ var io=new IntersectionObserver(function(en){
+   en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } });
+ },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+ els.forEach(function(e,i){ e.style.transitionDelay=(i%3*70)+'ms'; io.observe(e); });
+})();
+</script>
 <footer style="background:#0D2A2E;color:#9CC0C2">
  <div class="wrap ftgrid">
   <div><h4>Call</h4><a class="fphone" href="tel:+19044421781">(904) 442-1781</a>
