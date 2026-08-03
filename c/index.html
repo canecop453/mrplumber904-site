@@ -172,6 +172,22 @@ padding:7px 13px;border-radius:6px;color:#fff;background:rgba(13,42,46,.86)}
 box-shadow:0 8px 28px rgba(13,42,46,.2);text-align:left}
 .bafoot b{color:#017278}
 
+/* recent job gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+@media(max-width:1000px){.gal{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.gal{grid-template-columns:1fr}}
+.gcard{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(13,42,46,.22);
+transition:transform .18s,box-shadow .18s}
+.gcard:hover{transform:translateY(-6px);box-shadow:0 20px 46px rgba(13,42,46,.3)}
+.gfig{margin:0;aspect-ratio:4/5;background:#0D2A2E;position:relative}
+.gfig img{width:100%;height:100%;object-fit:cover;display:block}
+.gtag{position:absolute;top:11px;left:11px;background:#02ADB4;color:#fff;font-size:10.5px;
+font-weight:900;letter-spacing:.14em;padding:6px 10px;border-radius:5px}
+.gtag.res{background:#0D2A2E}
+.gcap{padding:16px 17px;color:#0D2A2E;text-align:left}
+.gcap b{display:block;font-size:15.5px;letter-spacing:-.02em;margin-bottom:4px}
+.gcap p{color:#5C7679;font-size:13.5px;line-height:1.5}
+
 /* review slot */
 .revslot{background:#fff;border:3px dashed #BFDCDE;border-radius:18px;padding:34px 26px;text-align:center;color:#5C7679}
 .revslot b{display:block;color:#0D2A2E;font-size:18px;margin-bottom:8px;letter-spacing:-.02em}
@@ -273,7 +289,7 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
 <section class="center" id="work"><div class="wrap">
  <p class="eyebrow rv">Our work</p>
  <h2 class="rv">Before &amp; after.</h2>
- <p class="lede rv">A bathroom taken back to the joists after a long-running leak &mdash; then rebuilt.</p>
+ <p class="lede rv">Residential and commercial &mdash; from a bathroom taken back to the joists, to 6&quot; roof leaders in a working truck shop.</p>
  <div class="ba">
   <div class="bacard rv">
    <figure class="bafig">
@@ -297,6 +313,25 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
   what happened in the first photo &mdash; finding the rot, cutting it out and rebuilding the framing
   before a single new fixture went in.
  </div>
+ <div class="gal">
+  <div class="gcard rv">
+   <figure class="gfig"><img src="../assets/job-leader-wide.jpg" alt="Six-inch PVC commercial roof leader running along the header above the bay doors of a fleet maintenance building" decoding="async" width="1200" height="665"><span class="gtag">COMMERCIAL</span></figure>
+   <div class="gcap"><b>6&quot; roof leaders</b><p>Rainwater leaders run and hung through a working truck shop &mdash; offsets sweated in around the existing steel and conduit.</p></div>
+  </div>
+  <div class="gcard rv">
+   <figure class="gfig"><img src="../assets/job-leader-tall.jpg" alt="Six-inch roof leader running diagonally across the roof trusses of a commercial maintenance building" decoding="async" width="1029" height="1200"><span class="gtag">COMMERCIAL</span></figure>
+   <div class="gcap"><b>Hung off the trusses</b><p>The same run carried across the bay. Strapped and supported off the structure so it stays put and stays pitched.</p></div>
+  </div>
+  <div class="gcard rv">
+   <figure class="gfig"><img src="../assets/job-boiler.jpg" alt="Commercial boiler replacement with gas piping, expansion tanks and flue connections in a mechanical room" decoding="async" width="666" height="1200"><span class="gtag">COMMERCIAL</span></figure>
+   <div class="gcap"><b>Commercial boiler replacement</b><p>Swapped out and re-piped &mdash; gas, water, expansion tanks and flue all tied back in.</p></div>
+  </div>
+  <div class="gcard rv">
+   <figure class="gfig"><img src="../assets/job-tankless.jpg" alt="Rinnai tankless water heater mounted on an exterior wall with new gas line and isolation valves" decoding="async" width="667" height="1200"><span class="gtag res">RESIDENTIAL</span></figure>
+   <div class="gcap"><b>Tankless install</b><p>Exterior wall-mount tankless with a new gas run and isolation valves &mdash; endless hot water, and the floor space back.</p></div>
+  </div>
+ </div>
+
  <div class="rv" style="margin-top:22px">
   <div class="revslot"><b>Customer reviews go here</b>
   <span>Once the Google Business Profile is live and the first reviews land, they slot into this space.</span></div>
