@@ -103,6 +103,20 @@ padding:15px;font-size:16.5px;font-weight:900;cursor:pointer;font-family:inherit
 .qsend:hover{transform:translateY(-2px)}
 .qnote{font-size:12px;color:#5C7679;margin-top:11px;text-align:center}
 .qnote a{color:#017278;font-weight:800}
+.qsend[disabled]{opacity:.55;cursor:not-allowed;transform:none}
+.hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;
+opacity:0!important;overflow:hidden;pointer-events:none}
+.qstat{margin-top:14px;padding:12px 14px;border-radius:10px;font-size:13.5px;font-weight:700;
+line-height:1.5;display:none;background:#FDECEC;color:#8A1F1F;border:2px solid #F3C9C9}
+.qstat.show{display:block}
+.qstat a{color:#8A1F1F;font-weight:900;text-decoration:underline}
+.qdone{display:none;text-align:center;padding:10px 2px 4px}
+.qdone.show{display:block}
+.qdone .tick{width:58px;height:58px;border-radius:50%;background:#02ADB4;color:#fff;
+line-height:58px;margin:0 auto 15px;font-size:31px;font-weight:900}
+.qdone h3{font-size:21px;font-weight:900;color:#0D2A2E;margin-bottom:9px;letter-spacing:-.02em}
+.qdone p{font-size:14.5px;color:#5C7679;line-height:1.6;margin-bottom:8px}
+.qdone a{color:#017278;font-weight:900}
 
 /* stat strip */
 .stats{background:#0D2A2E;display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
@@ -256,15 +270,24 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
  <div class="quote rv" id="quote">
   <h2 class="qh">Request a free estimate</h2>
   <p class="qs">Tell us what's going on and we'll get straight back to you.</p>
-  <form id="qform">
+  <form id="qform" action="https://api.web3forms.com/submit" method="POST">
    <label for="qn">Name</label><input id="qn" name="name" autocomplete="name" required>
    <label for="qp">Phone</label><input id="qp" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+   <label for="qe">Email <span style="font-weight:600;color:#5C7679">(optional)</span></label><input id="qe" name="email" type="email" inputmode="email" autocomplete="email" placeholder="So we can send the written estimate">
    <label for="qc">City</label><input id="qc" name="city" autocomplete="address-level2" placeholder="Jacksonville, Yulee, Fernandina…">
    <label for="qsv">What do you need?</label>
    <select id="qsv" name="service"><option>Not sure — please advise</option><option>Water Heaters</option><option>Water Filtration</option><option>Repipes</option><option>Drain Cleaning</option><option>Sewer Lines</option><option>Gas Lines</option><option>Toilets</option><option>Faucets &amp; Fixtures</option><option>Leak Detection</option><option>Kitchen &amp; Bath Remodel</option><option>Commercial Service</option><option>Emergency Plumbing</option></select>
    <label for="qm">Details</label><textarea id="qm" name="details" placeholder="What's happening, and how urgent is it?"></textarea>
+   <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
    <button class="qsend" type="submit">Send my request</button>
   </form>
+  <div class="qstat" id="qstat" role="alert" aria-live="polite"></div>
+  <div class="qdone" id="qdone">
+   <div class="tick">&check;</div>
+   <h3>Got it &mdash; we'll be in touch</h3>
+   <p>Your request is in. We normally get back the same business day.</p>
+   <p>Need it sorted right now? <a href="tel:+19044421781">Call (904) 442-1781</a> &mdash; 24/7 for emergencies.</p>
+  </div>
   <p class="qnote">Emergency? Don't wait on a form &mdash; <a href="tel:+19044421781">call (904) 442-1781</a></p>
  </div>
 </div></div></section>
@@ -395,15 +418,74 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
    if(e.target.tagName==='A'){ nl.classList.remove('open'); t.setAttribute('aria-expanded','false'); }
   });
  }
+ /* ---- Estimate form -> Web3Forms -> Mr.Plumber904@gmail.com ----
+    Replace W3KEY with the Web3Forms access key. Until it is set, the form
+    falls back to the old mailto: behaviour so it is never a dead end. */
+ var W3KEY='PASTE_WEB3FORMS_ACCESS_KEY_HERE';
  var f=document.getElementById('qform');
- if(f) f.addEventListener('submit',function(ev){
-  ev.preventDefault();
-  var g=function(id){var el=document.getElementById(id);return el?el.value:'';};
-  var body='Name: '+g('qn')+'\nPhone: '+g('qp')+'\nCity: '+g('qc')
-          +'\nService: '+g('qsv')+'\n\nDetails:\n'+g('qm');
-  window.location.href='mailto:Mr.Plumber904@gmail.com?subject='
-   +encodeURIComponent('Estimate request from '+g('qn'))+'&body='+encodeURIComponent(body);
- });
+ if(f){
+  var btn=f.querySelector('.qsend'), stat=document.getElementById('qstat'),
+      done=document.getElementById('qdone'), card=f.closest('.quote');
+  var v=function(n){var e=f.elements[n];return e?String(e.value||'').trim():'';};
+  var fail=function(m){stat.innerHTML=m;stat.className='qstat show';};
+
+  var pel=f.elements['phone'];
+  if(pel) pel.addEventListener('input',function(){
+   var d=this.value.replace(/\D/g,'').slice(0,10), o=d;
+   if(d.length>6) o='('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6);
+   else if(d.length>3) o='('+d.slice(0,3)+') '+d.slice(3);
+   this.value=o;
+  });
+
+  f.addEventListener('submit',function(ev){
+   ev.preventDefault();
+   stat.className='qstat';
+   if(f.elements['botcheck'] && f.elements['botcheck'].checked) return;
+
+   var name=v('name'), svc=v('service'), digits=v('phone').replace(/\D/g,'');
+   if(digits.length<10){
+    fail('Please enter a 10-digit phone number so we can call you back.');
+    f.elements['phone'].focus(); return;
+   }
+
+   if(W3KEY.indexOf('PASTE_')===0){
+    window.location.href='mailto:Mr.Plumber904@gmail.com?subject='
+     +encodeURIComponent('Estimate request from '+name)+'&body='
+     +encodeURIComponent('Name: '+name+'\nPhone: '+v('phone')+'\nEmail: '+v('email')
+      +'\nCity: '+v('city')+'\nService: '+svc+'\n\nDetails:\n'+v('details'));
+    return;
+   }
+
+   var fd=new FormData(f);
+   fd.set('access_key',W3KEY);
+   fd.set('from_name','Mr. Plumber 904 Website');
+   fd.set('subject',(svc==='Emergency Plumbing'?'EMERGENCY — ':'')
+        +'New estimate request: '+name+' ('+svc+')');
+   if(v('email')) fd.set('replyto',v('email')); else fd.delete('email');
+   if(!v('city')) fd.delete('city');
+   if(!v('details')) fd.delete('details');
+
+   btn.disabled=true; btn.textContent='Sending\u2026';
+   fetch('https://api.web3forms.com/submit',{method:'POST',body:fd})
+    .then(function(r){return r.json();})
+    .then(function(d){
+     if(!d||!d.success) throw new Error('rejected');
+     f.style.display='none';
+     var h=card.querySelector('.qh'), p=card.querySelector('.qs'),
+         n=card.querySelector('.qnote');
+     if(h) h.style.display='none';
+     if(p) p.style.display='none';
+     if(n) n.style.display='none';
+     done.className='qdone show';
+     card.scrollIntoView({behavior:'smooth',block:'center'});
+    })
+    .catch(function(){
+     btn.disabled=false; btn.textContent='Send my request';
+     fail('That didn\'t go through. Please call <a href="tel:+19044421781">(904) 442-1781</a> '
+        +'and we\'ll take care of it.');
+    });
+  });
+ }
 })();
 </script>
 <footer style="background:#0D2A2E;color:#9CC0C2">
