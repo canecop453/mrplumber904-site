@@ -18,10 +18,6 @@ a{color:inherit} img{max-width:100%}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:12px;top:12px;background:#fff;padding:10px 16px;z-index:99;border-radius:6px}
 :focus-visible{outline:3px solid #02ADB4;outline-offset:3px}
-.photoslot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
-border-radius:12px;text-align:center;padding:20px}
-.photoslot span{font-size:11px;font-weight:800;letter-spacing:.18em}
-.photoslot em{font-style:normal;font-size:13.5px;opacity:.85;max-width:30ch}
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;background:#02ADB4;padding:13px}
 .callbar a{display:block;color:#fff;text-decoration:none;font-weight:800;font-size:19px;text-align:center}
 @media(max-width:780px){.callbar{display:block}body{padding-bottom:60px}}
@@ -94,30 +90,18 @@ font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:99px}
 .quote{background:#fff;border-radius:22px;padding:30px 26px;color:#0D2A2E;box-shadow:0 24px 64px rgba(13,42,46,.34)}
 .quote h2.qh{font-size:22px;letter-spacing:-.03em;margin-bottom:4px;font-weight:900;color:#0D2A2E;line-height:1.2}
 .quote p.qs{color:#5C7679;font-size:14px;margin-bottom:18px}
-.quote label{display:block;font-size:12.5px;font-weight:800;color:#0D2A2E;margin:12px 0 5px;letter-spacing:.03em}
-.quote input,.quote select,.quote textarea{width:100%;border:2px solid #DFEDED;border-radius:9px;
-padding:11px 13px;font-size:15px;font-family:inherit;color:#0D2A2E;background:#F9FCFC}
-.quote input:focus,.quote select:focus,.quote textarea:focus{outline:none;border-color:#02ADB4;background:#fff}
-.quote textarea{min-height:78px;resize:vertical}
-.qsend{width:100%;margin-top:18px;background:#017278;color:#fff;border:none;border-radius:11px;
-padding:15px;font-size:16.5px;font-weight:900;cursor:pointer;font-family:inherit;transition:transform .14s}
-.qsend:hover{transform:translateY(-2px)}
-.qnote{font-size:12px;color:#5C7679;margin-top:11px;text-align:center}
-.qnote a{color:#017278;font-weight:800}
-.qsend[disabled]{opacity:.55;cursor:not-allowed;transform:none}
-.hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;
-opacity:0!important;overflow:hidden;pointer-events:none}
-.qstat{margin-top:14px;padding:12px 14px;border-radius:10px;font-size:13.5px;font-weight:700;
-line-height:1.5;display:none;background:#FDECEC;color:#8A1F1F;border:2px solid #F3C9C9}
-.qstat.show{display:block}
-.qstat a{color:#8A1F1F;font-weight:900;text-decoration:underline}
-.qdone{display:none;text-align:center;padding:10px 2px 4px}
-.qdone.show{display:block}
-.qdone .tick{width:58px;height:58px;border-radius:50%;background:#02ADB4;color:#fff;
-line-height:58px;margin:0 auto 15px;font-size:31px;font-weight:900}
-.qdone h3{font-size:21px;font-weight:900;color:#0D2A2E;margin-bottom:9px;letter-spacing:-.02em}
-.qdone p{font-size:14.5px;color:#5C7679;line-height:1.6;margin-bottom:8px}
-.qdone a{color:#017278;font-weight:900}
+.qcall{display:block;text-align:center;background:#017278;color:#fff;text-decoration:none;
+border-radius:13px;padding:19px 16px;margin:4px 0 6px;transition:transform .14s}
+.qcall:hover{transform:translateY(-2px)}
+.qcall span{display:block;font-size:11.5px;font-weight:800;letter-spacing:.16em;opacity:.85;margin-bottom:5px}
+.qcall b{display:block;font-size:clamp(26px,3.4vw,33px);font-weight:900;letter-spacing:-.03em;line-height:1}
+.qrow{display:flex;gap:11px;padding:13px 0;border-bottom:1px solid #EAF4F4;align-items:flex-start;
+font-size:14px;color:#5C7679;line-height:1.5}
+.qrow:last-of-type{border-bottom:none}
+.qrow i{font-style:normal;color:#02ADB4;font-weight:900;font-size:15px;line-height:1.4}
+.qrow b{color:#0D2A2E;font-weight:800}
+.qmail{display:block;text-align:center;margin-top:14px;font-size:13.5px;color:#5C7679}
+.qmail a{color:#017278;font-weight:800}
 
 /* stat strip */
 .stats{background:#0D2A2E;display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
@@ -166,7 +150,10 @@ align-items:center;justify-content:center;font-weight:900;font-size:22px;box-sha
 .emg::after{content:"";position:absolute;right:-100px;top:-100px;width:420px;height:420px;border-radius:50%;
 background:radial-gradient(circle,rgba(2,173,180,.42),transparent 68%)}
 .emg .wrap{position:relative;z-index:2}
+.emg h2{color:#fff}
+.emg .lede{color:#C3DEE0;max-width:none}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.solo{max-width:720px;margin:0 auto;text-align:center}
 @media(max-width:880px){.two{grid-template-columns:1fr;gap:26px}}
 
 /* steps */
@@ -214,10 +201,6 @@ font-weight:900;letter-spacing:.14em;padding:6px 10px;border-radius:5px}
 .gcap b{display:block;font-size:15.5px;letter-spacing:-.02em;margin-bottom:4px}
 .gcap p{color:#5C7679;font-size:13.5px;line-height:1.5}
 
-/* review slot */
-.revslot{background:#fff;border:3px dashed #BFDCDE;border-radius:18px;padding:34px 26px;text-align:center;color:#5C7679}
-.revslot b{display:block;color:#0D2A2E;font-size:18px;margin-bottom:8px;letter-spacing:-.02em}
-.revslot span{font-size:14.5px}
 
 /* areas */
 .areas{background:#fff;color:#0D2A2E}
@@ -233,7 +216,6 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .55s ease,transform .55s ease}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
-.photoslot{border-color:rgba(255,255,255,.45) !important;color:rgba(255,255,255,.8) !important}
 </style>
 <script type="application/ld+json">
 {
@@ -304,27 +286,13 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
   </div>
  </div>
  <div class="quote rv" id="quote">
-  <h2 class="qh">Request a free estimate</h2>
-  <p class="qs">Tell us what's going on and we'll get straight back to you.</p>
-  <form id="qform" action="https://api.web3forms.com/submit" method="POST">
-   <label for="qn">Name</label><input id="qn" name="name" autocomplete="name" required>
-   <label for="qp">Phone</label><input id="qp" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
-   <label for="qe">Email <span style="font-weight:600;color:#5C7679">(optional)</span></label><input id="qe" name="email" type="email" inputmode="email" autocomplete="email" placeholder="So we can send the written estimate">
-   <label for="qc">City</label><input id="qc" name="city" autocomplete="address-level2" placeholder="Jacksonville, Yulee, Fernandina…">
-   <label for="qsv">What do you need?</label>
-   <select id="qsv" name="service"><option>Not sure — please advise</option><option>Water Heaters</option><option>Water Filtration</option><option>Repipes</option><option>Drain Cleaning</option><option>Sewer Lines</option><option>Gas Lines</option><option>Toilets</option><option>Faucets &amp; Fixtures</option><option>Leak Detection</option><option>Kitchen &amp; Bath Remodel</option><option>Commercial Service</option><option>Emergency Plumbing</option></select>
-   <label for="qm">Details</label><textarea id="qm" name="details" placeholder="What's happening, and how urgent is it?"></textarea>
-   <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-   <button class="qsend" type="submit">Send my request</button>
-  </form>
-  <div class="qstat" id="qstat" role="alert" aria-live="polite"></div>
-  <div class="qdone" id="qdone">
-   <div class="tick">&check;</div>
-   <h3>Got it &mdash; we'll be in touch</h3>
-   <p>Your request is in. We normally get back the same business day.</p>
-   <p>Need it sorted right now? <a href="tel:+19044421781">Call (904) 442-1781</a> &mdash; 24/7 for emergencies.</p>
-  </div>
-  <p class="qnote">Emergency? Don't wait on a form &mdash; <a href="tel:+19044421781">call (904) 442-1781</a></p>
+  <h2 class="qh">Free estimate &mdash; one call</h2>
+  <p class="qs">Tell us what's going on and we'll come look. No charge, no pressure.</p>
+  <a class="qcall" href="tel:+19044421781"><span>CALL FOR A FREE ESTIMATE</span><b>(904) 442-1781</b></a>
+  <div class="qrow"><i>&#10003;</i><div><b>Monday to Friday, 7:30am&ndash;5:00pm.</b> Nights, weekends and holidays for emergencies.</div></div>
+  <div class="qrow"><i>&#10003;</i><div><b>You get a person, not a phone tree.</b> The one who answers has done the work.</div></div>
+  <div class="qrow"><i>&#10003;</i><div><b>Licensed &amp; insured</b> &mdash; FL LIC. CFC1430383.</div></div>
+  <p class="qmail">Rather write it down? <a href="mailto:Mr.Plumber904@gmail.com">Mr.Plumber904@gmail.com</a></p>
  </div>
 </div></div></section>
 
@@ -344,12 +312,11 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
  <div class="wgrid"><div class="wcard rv"><div class="tick">&#10003;</div><div><b>Licensed &amp; insured</b><p>Florida FL LIC. CFC1430383 — verify it before you hire anyone.</p></div></div><div class="wcard rv"><div class="tick">&#10003;</div><div><b>28 years on the tools</b><p>Not a call centre. The person who answers has done the work.</p></div></div><div class="wcard rv"><div class="tick">&#10003;</div><div><b>Free estimates</b><p>We look, we explain, we quote. No charge, no pressure.</p></div></div><div class="wcard rv"><div class="tick">&#10003;</div><div><b>24/7 emergency service</b><p>Nights, weekends and holidays when it can't wait.</p></div></div><div class="wcard rv"><div class="tick">&#10003;</div><div><b>Flat rate or hourly</b><p>Whichever suits the job. You know the price before we start.</p></div></div><div class="wcard rv"><div class="tick">&#10003;</div><div><b>Warranty on the work</b><p>And if you don't need the work, we'll tell you.</p></div></div></div>
 </div></section>
 
-<section class="emg"><div class="wrap two">
+<section class="emg"><div class="wrap solo">
  <div><p class="eyebrow light rv">24/7 emergency</p>
  <h2 class="rv">Burst pipe at midnight?</h2>
  <p class="lede rv">Emergencies don't keep business hours and neither do we. Shut the main off if you can reach it safely, then call &mdash; we'll talk you through the rest on the phone.</p>
  <a class="big rv" href="tel:+19044421781">(904) 442-1781</a></div>
- <div class="rv"><div class="photoslot" data-slot="work2" style="min-height:250px;border:2px dashed rgba(255,255,255,.32);color:rgba(255,255,255,.72)"><span>PHOTO SLOT</span><em>Repipe in progress</em></div></div>
 </div></section>
 
 <section id="how" class="center"><div class="wrap">
@@ -405,10 +372,6 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
   </div>
  </div>
 
- <div class="rv" style="margin-top:22px">
-  <div class="revslot"><b>Customer reviews go here</b>
-  <span>Once the Google Business Profile is live and the first reviews land, they slot into this space.</span></div>
- </div>
 </div></section>
 
 <section class="areas center" id="areas"><div class="wrap">
@@ -452,82 +415,6 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
   });
   nl.addEventListener('click',function(e){
    if(e.target.tagName==='A'){ nl.classList.remove('open'); t.setAttribute('aria-expanded','false'); }
-  });
- }
- /* ---- Estimate form -> Web3Forms -> Mr.Plumber904@gmail.com ----
-    Replace W3KEY with the Web3Forms access key. Until it is set, the form
-    falls back to the old mailto: behaviour so it is never a dead end. */
- var W3KEY='PASTE_WEB3FORMS_ACCESS_KEY_HERE';
- var f=document.getElementById('qform');
- if(f){
-  var btn=f.querySelector('.qsend'), stat=document.getElementById('qstat'),
-      done=document.getElementById('qdone'), card=f.closest('.quote');
-  var v=function(n){var e=f.elements[n];return e?String(e.value||'').trim():'';};
-  var fail=function(m){stat.innerHTML=m;stat.className='qstat show';};
-
-  var pel=f.elements['phone'];
-  if(pel) pel.addEventListener('input',function(){
-   var d=this.value.replace(/\D/g,'').slice(0,10), o=d;
-   if(d.length>6) o='('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6);
-   else if(d.length>3) o='('+d.slice(0,3)+') '+d.slice(3);
-   this.value=o;
-  });
-
-  f.addEventListener('submit',function(ev){
-   ev.preventDefault();
-   stat.className='qstat';
-   if(f.elements['botcheck'] && f.elements['botcheck'].checked) return;
-
-   var name=v('name'), svc=v('service'), digits=v('phone').replace(/\D/g,'');
-   if(digits.length<10){
-    fail('Please enter a 10-digit phone number so we can call you back.');
-    f.elements['phone'].focus(); return;
-   }
-
-   if(W3KEY.indexOf('PASTE_')===0){
-    /* No access key set yet. Hand off to the visitor's mail app, but never
-       leave them staring at a button that appears to do nothing: desktop
-       browsers with no mail client configured ignore mailto: silently. */
-    var body='Name: '+name+'\nPhone: '+v('phone')+'\nEmail: '+v('email')
-     +'\nCity: '+v('city')+'\nService: '+svc+'\n\nDetails:\n'+v('details');
-    var mto='mailto:Mr.Plumber904@gmail.com?subject='
-     +encodeURIComponent('Estimate request from '+name)+'&body='+encodeURIComponent(body);
-    try{ window.location.href=mto; }catch(e){}
-    fail('Your email program should be opening with this request ready to send &mdash; '
-     +'<b>please hit send</b>. Nothing happened? '
-     +'<a href="tel:+19044421781">Call (904) 442-1781</a> and we\'ll pick up, '
-     +'or email <a href="'+mto+'">Mr.Plumber904@gmail.com</a> directly.');
-    return;
-   }
-
-   var fd=new FormData(f);
-   fd.set('access_key',W3KEY);
-   fd.set('from_name','Mr. Plumber 904 Website');
-   fd.set('subject',(svc==='Emergency Plumbing'?'EMERGENCY — ':'')
-        +'New estimate request: '+name+' ('+svc+')');
-   if(v('email')) fd.set('replyto',v('email')); else fd.delete('email');
-   if(!v('city')) fd.delete('city');
-   if(!v('details')) fd.delete('details');
-
-   btn.disabled=true; btn.textContent='Sending\u2026';
-   fetch('https://api.web3forms.com/submit',{method:'POST',body:fd})
-    .then(function(r){return r.json();})
-    .then(function(d){
-     if(!d||!d.success) throw new Error('rejected');
-     f.style.display='none';
-     var h=card.querySelector('.qh'), p=card.querySelector('.qs'),
-         n=card.querySelector('.qnote');
-     if(h) h.style.display='none';
-     if(p) p.style.display='none';
-     if(n) n.style.display='none';
-     done.className='qdone show';
-     card.scrollIntoView({behavior:'smooth',block:'center'});
-    })
-    .catch(function(){
-     btn.disabled=false; btn.textContent='Send my request';
-     fail('That didn\'t go through. Please call <a href="tel:+19044421781">(904) 442-1781</a> '
-        +'and we\'ll take care of it.');
-    });
   });
  }
 })();
