@@ -485,10 +485,18 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
    }
 
    if(W3KEY.indexOf('PASTE_')===0){
-    window.location.href='mailto:Mr.Plumber904@gmail.com?subject='
-     +encodeURIComponent('Estimate request from '+name)+'&body='
-     +encodeURIComponent('Name: '+name+'\nPhone: '+v('phone')+'\nEmail: '+v('email')
-      +'\nCity: '+v('city')+'\nService: '+svc+'\n\nDetails:\n'+v('details'));
+    /* No access key set yet. Hand off to the visitor's mail app, but never
+       leave them staring at a button that appears to do nothing: desktop
+       browsers with no mail client configured ignore mailto: silently. */
+    var body='Name: '+name+'\nPhone: '+v('phone')+'\nEmail: '+v('email')
+     +'\nCity: '+v('city')+'\nService: '+svc+'\n\nDetails:\n'+v('details');
+    var mto='mailto:Mr.Plumber904@gmail.com?subject='
+     +encodeURIComponent('Estimate request from '+name)+'&body='+encodeURIComponent(body);
+    try{ window.location.href=mto; }catch(e){}
+    fail('Your email program should be opening with this request ready to send &mdash; '
+     +'<b>please hit send</b>. Nothing happened? '
+     +'<a href="tel:+19044421781">Call (904) 442-1781</a> and we\'ll pick up, '
+     +'or email <a href="'+mto+'">Mr.Plumber904@gmail.com</a> directly.');
     return;
    }
 
