@@ -195,11 +195,13 @@ box-shadow:0 8px 28px rgba(13,42,46,.2);text-align:left}
 .bafoot b{color:#017278}
 
 /* recent job gallery */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
-@media(max-width:1000px){.gal{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.gal{grid-template-columns:1fr}}
-.gcard{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(13,42,46,.22);
-transition:transform .18s,box-shadow .18s}
+.gal{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:20px}
+.gcard{flex:0 1 calc(25% - 12px);background:#fff;border-radius:16px;overflow:hidden;
+box-shadow:0 8px 28px rgba(13,42,46,.22);transition:transform .18s,box-shadow .18s}
+.gcard.wide{flex:0 1 calc(50% - 8px)}
+.gcard.wide .gfig{aspect-ratio:4/3}
+@media(max-width:1000px){.gcard{flex:0 1 calc(50% - 8px)}}
+@media(max-width:560px){.gcard,.gcard.wide{flex:0 1 100%}}
 .gcard:hover{transform:translateY(-6px);box-shadow:0 20px 46px rgba(13,42,46,.3)}
 .gfig{margin:0;aspect-ratio:4/5;background:#0D2A2E;position:relative}
 .gfig img{width:100%;height:100%;object-fit:cover;display:block}
@@ -412,7 +414,7 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
 <section class="center" id="work"><div class="wrap">
  <p class="eyebrow rv">Our work</p>
  <h2 class="rv">Before &amp; after.</h2>
- <p class="lede rv">Residential and commercial &mdash; from a bathroom taken back to the joists, to 6&quot; roof leaders in a working truck shop.</p>
+ <p class="lede rv">Residential and commercial &mdash; from a bathroom taken back to the joists, to a repipe with the walls open, to 6&quot; roof leaders in a working truck shop.</p>
  <div class="ba">
   <div class="bacard rv">
    <figure class="bafig">
@@ -452,6 +454,10 @@ box-shadow:0 4px 16px rgba(13,42,46,.14)}
   <div class="gcard rv">
    <figure class="gfig"><img src="assets/job-tankless.jpg" alt="Rinnai tankless water heater mounted on an exterior wall with new gas line and isolation valves" decoding="async" width="667" height="1200"><span class="gtag res">RESIDENTIAL</span></figure>
    <div class="gcap"><b>Tankless install</b><p>Exterior wall-mount tankless with a new gas run and isolation valves &mdash; endless hot water, and the floor space back.</p></div>
+  </div>
+  <div class="gcard wide rv">
+   <figure class="gfig"><img src="assets/job-repipe.jpg" alt="Bathroom wall opened to the studs during a repipe, with new PVC drain and vent lines and new water lines run and strapped to the framing" decoding="async" width="1200" height="900"><span class="gtag">REPIPE</span></figure>
+   <div class="gcap"><b>Repipe in progress</b><p>Wall opened to the studs and the lines replaced &mdash; new drain, waste and vent in PVC, new water lines run alongside, all strapped off the framing before anything gets closed up.</p></div>
   </div>
  </div>
 
